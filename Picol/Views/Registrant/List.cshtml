@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "List Registrants";
+}
+
+<div id="RegistrantGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="OpenCreateWindow">Create</button>
+    <button type="button" id="ExportRegistrantGrid">Export</button>
+    <span id="RegistrantCounter" style="float:right;">Count</span>
+</div>
+
+<table id="CreateWindow" class="OverlayInterface">
+    <thead>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                <label for="Code">Code</label>
+            </th>
+            <th>
+                <label for="Name">Name</label>
+            </th>
+            <th>
+                <label for="AddressOne">AddressOne</label>
+            </th>
+            <th>
+                <label for="AddressTwo">AddressTwo</label>
+            </th>
+            <th>
+                <label for="City">City</label>
+            </th>
+            <th>
+                <label for="State">State</label>
+            </th>
+            <th>
+                <label for="Zip">Zip</label>
+            </th>
+            <th>
+                <label for="Country">Country</label>
+            </th>
+            
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="Code" />
+            </td>
+            <td>
+                <input type="text" id="Name" />
+            </td>
+            <td>
+                <input type="text" id="AddressOne" />
+            </td>
+            <td>
+                <input type="text" id="AddressTwo" />
+            </td>
+            <td>
+                <input type="text" id="City" />
+            </td>
+            <td>
+                <input type="text" id="State" />
+            </td>
+            <td>
+                <input type="text" id="Zip" />
+            </td>
+            <td>
+                <input type="text" id="Country" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="Foreign">Foreign</label>
+            </th>
+            <th>
+                <label for="Contact">Contact</label>
+            </th>
+            <th>
+                <label for="Phone">Phone</label>
+            </th>
+            <th>
+                <label for="EmergencyPhone">EmergencyPhone</label>
+            </th>
+            <th>
+                <label for="Email">Email</label>
+            </th>
+            <th>
+                <label for="Url">Url</label>
+            </th>
+            <th>
+                <label for="Notes">Notes</label>
+            </th>
+            <th>
+                <label for="Tier">Tier</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="Foreign" />
+            </td>
+            <td>
+                <input type="text" id="Contact" />
+            </td>
+            <td>
+                <input type="text" id="Phone" />
+            </td>
+            <td>
+                <input type="text" id="EmergencyPhone" />
+            </td>
+            <td>
+                <input type="text" id="Email" />
+            </td>
+            <td>
+                <input type="text" id="Url" />
+            </td>
+            <td>
+                <input type="text" id="Notes" />
+            </td>
+            <td>
+                <input type="text" id="Tier" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button id="Create">Create</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Registrant_List")
+}

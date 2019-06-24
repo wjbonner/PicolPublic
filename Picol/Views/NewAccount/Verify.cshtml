@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Verify";
+}
+
+<h2>@(ViewBag.Message)</h2>
+
+@{
+    if (ViewBag.Verified)
+    {
+        <p>
+            <a href="~/Session/Create">Click here to login.</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            <a href="~/NewAccount/SendVerification/@(ViewBag.Id)">Click to resend verification URL</a>
+        </p>
+    }
+}

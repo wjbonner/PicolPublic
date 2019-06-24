@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Pest";
+}
+
+<div id="PestGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div id="PestFooter" class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="ExportPestGrid">Export</button>
+    <span id="PestCounter" style="float:right;">Count</span>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Lookup_Pests")
+}

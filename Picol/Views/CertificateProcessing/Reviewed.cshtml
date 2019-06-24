@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Reviewed";
+}
+
+<div id="FilesContainer">
+    <h2>Unprocessed Files</h2>
+    <div id="FileGrid" style="width: 100%; height: 500px; float:left;"></div>
+    <div class="footer">
+        <span id="Documentation"><a href="#" target="_blank">Documentation</a></span> |
+        <button type="button" id="ExportFileGrid">Export</button>
+        <span id="FileCounter" style="float:right;">Count</span>
+    </div>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_CertificateProcessing_Reviewed")
+}

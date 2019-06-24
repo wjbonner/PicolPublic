@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "DataLoad";
+}
+
+<h2>Data Load</h2>
+
+<fieldset style="display:inline-block;">
+    <legend>Data Load</legend>
+    <p>
+        Use the controls on this page to initiate a manual data load from the old to the new PICOL database, and monitor the transfer.  The PICOL search functions will not work
+        while the transfer is in process, though users will be able to login.
+    </p>
+
+    <dl class="dl-vertical">
+        <dt>
+            Launcher
+        </dt>
+
+        <dd>
+            <input type="button" id="StartLoad" value="Start Transfer" style="margin: 0;padding: 0;" />
+        </dd>
+
+        <dt>
+            Status
+        </dt>
+
+        <dd>
+            <span id="LoadIndicator" style="height:20px;width:20px;display:inline-block;">&nbsp;</span>
+            <span id="LoadStatus"></span>
+        </dd>
+    </dl>
+</fieldset>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_Admin_DataLoad")
+}

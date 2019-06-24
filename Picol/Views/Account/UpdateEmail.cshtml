@@ -1,0 +1,49 @@
+﻿@model Picol.Models.User
+
+@{
+    ViewBag.Title = "UpdateEmail";
+}
+
+<div class="form-horizontal" style="padding: 20px;float:left;">
+    <h3>Update Email</h3>
+    <hr />
+    <div class="form-group">
+        @Html.Label("Current Email", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+        @Model.Email
+    </div>
+
+    <div class="form-group">
+        @Html.Label("New Email", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Editor("NewEmail", new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            @Html.ValidationMessage("NewEmail", "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Confirm Email", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Editor("EmailConfirmation", new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            @Html.ValidationMessage("EmailConfirmation", "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+<div style="float:left;margin: 20px 20px 20px 20px;">
+    <h3>Instructions</h3>
+    <p>
+        To update your email address you must have access to the current address.  If you do not have access to your previous email you will need to contact the site administrator.  To proceed, follow these steps:
+    </p>
+    <ul>
+        <li>Specify your new email address and click "Update"</li>
+        <li>An email will be sent to your current address with a link confirming this change</li>
+        <li>Opening this confirmation URL will update your email address in the database, and direct you to the login page</li>
+        <li>Use the new email address to login</li>
+    </ul>
+</div>

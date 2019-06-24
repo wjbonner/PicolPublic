@@ -1,0 +1,57 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using Picol.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "PICOL Public API Help Page";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>Introduction</h2>
+            <p>
+                This is the dynamic documentation of the public PICOL API.  To request an API key, you first need to create an account, and submit an API key request.
+            </p>
+
+            <h2>Versions</h2>
+            <p>
+                The current version of the API is <strong>1</strong>.  PICOL has now officially left beta.  The version 0 API will continue to be 
+                available  until 5/1/2021.  Changes within major versions will be limited to bug fixes, and improvements or refactoring that are
+                non-breaking.  Changes between major versions may, and likely will be, breaking in one way or another.
+
+                <strong>Version List</strong>
+                <ul>
+                    <li>Version 1 (Current)</li>
+                    <li>Version 0 (Deprecated)</li>
+                </ul>
+             </p>
+
+            <h2>Usage</h2>
+            <p>
+                See the documentation below for usage information.  For each API method, replace the strings enclosed in curly braces with the appropiate values.  e.g. {acceptTos}
+                with true.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+</div>

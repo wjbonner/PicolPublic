@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Reset";
+}
+
+<h2>@(ViewBag.Message)</h2>
+
+@{
+    if (ViewBag.Reset)
+    {
+        <p>
+            You can change your password by logging into your account.  <a href="~/Session/Create">Click here to login.</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            <a href="~/Session/Recover/@(ViewBag.Id)">Click to resend recovery URL</a>
+        </p>
+    }
+}
+

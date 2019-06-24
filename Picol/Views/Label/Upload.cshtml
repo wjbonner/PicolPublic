@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "List Labels";
+}
+
+<div id="LabelGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span> |
+    <button type="button" id="OpenCreateWindow">Create</button>
+    <button type="button" id="ExportLabelGrid">Export</button>
+    <span id="LabelCounter" style="float:right;">Count</span>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Label_Upload")
+}
+
+@*<h2>New Oregon Files</h2>
+
+<ul>
+    @{
+        foreach (var s in (List<string>)ViewBag.OregonFiles)
+        {
+            string name = s.Split('\\').Last();
+            <li>
+                <a href="~/Label/Import?State=Oregon&Filename=@name">@name</a>
+            </li>
+        }
+    }
+</ul>
+
+<h2>New Washington Files</h2>
+
+<ul>
+    @{
+        foreach (var s in (List<string>)ViewBag.WashingtonFiles)
+        {
+            string name = s.Split('\\').Last();
+            <li>
+                <a href="~/Label/Import?State=Washington&Filename=@name">@name</a>
+            </li>
+        }
+    }
+</ul>*@

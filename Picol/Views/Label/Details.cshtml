@@ -1,0 +1,391 @@
+﻿@model Picol.Models.Label
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@Html.HiddenFor(model => model.Id)
+<h4><a href="/Label/Download/@Model.Id">Download</a></h4>
+
+<fieldset style="width:auto;display:inline-block;margin: 0 10px 0 10px;vertical-align:top;">
+    <legend>Grouping 1</legend>
+
+    <div class="InputBlock">
+        <label for="Name">Name</label>
+        @Html.TextBoxFor(model => model.Name, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="SupplementalName">SupplementalName</label>
+        @Html.TextBoxFor(model => model.SupplementalName, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Epa">Epa</label>
+        @Html.TextBoxFor(model => model.Epa, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Cid">Cid</label>
+        @Html.TextBoxFor(model => model.Cid, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Sln">Sln</label>
+        @Html.TextBoxFor(model => model.Sln, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="SlnName">SlnName</label>
+        @Html.TextBoxFor(model => model.SlnName, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Ground">Ground</label>
+        @Html.TextBoxFor(model => model.Ground, new { data_type = "string" })
+    </div>
+</fieldset>
+
+<fieldset style="width:auto;display:inline-block;margin: 0 10px 0 10px;vertical-align:top;">
+    <legend>Grouping 2</legend>
+
+    <div class="InputBlock">
+        <label for="Formulations">Formulations</label>
+        @Html.DropDownList("FormulationId", (SelectList)ViewBag.Formulations, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="IntendedUsers">IntendedUsers</label>
+        @Html.DropDownList("IntendedUserId", (SelectList)ViewBag.IntendedUsers, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Registrants">Registrants</label>
+        @Html.DropDownList("RegistrantId", (SelectList)ViewBag.Registrants, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="SignalWords">SignalWords</label>
+        @Html.DropDownList("SignalWordId", (SelectList)ViewBag.SignalWords, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Usages">Usages</label>
+        @Html.DropDownList("UsageId", (SelectList)ViewBag.Usages, new { data_type = "int" })
+    </div>
+</fieldset>
+
+<fieldset style="width:auto;display:inline-block;margin: 0 10px 0 10px;vertical-align:top;">
+    <legend>Grouping 3</legend>
+
+    <div class="InputBlock">
+        <label for="EpaFieldOne">EpaFieldOne</label>
+        @Html.TextBoxFor(model => model.EpaFieldOne, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="EpaFieldTwo">EpaFieldTwo</label>
+        @Html.TextBoxFor(model => model.EpaFieldTwo, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="EpaFieldThree">EpaFieldThree</label>
+        @Html.TextBoxFor(model => model.EpaFieldThree, new { data_type = "int" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Supplemental">Supplemental</label>
+        @Html.TextBoxFor(model => model.Supplemental, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Spanish">Spanish</label>
+        @Html.TextBoxFor(model => model.Spanish, new { data_type = "string" })
+    </div>
+
+</fieldset>
+
+
+<fieldset style="width:auto;display:inline-block;margin: 0 10px 0 10px;vertical-align:top;">
+    <legend>Grouping 4</legend>
+
+    <div class="InputBlock">
+        <label for="Organic">Organic</label>
+        @Html.TextBoxFor(model => model.Organic, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="MasterLabel">MasterLabel</label>
+        @Html.TextBoxFor(model => model.MasterLabel, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="EsaNotice">EsaNotice</label>
+        @Html.TextBoxFor(model => model.EsaNotice, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Section18">Section18</label>
+        @Html.TextBoxFor(model => model.Section18, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="Section18Expiration">Section18Expiration</label>
+        @Html.TextBoxFor(model => model.Section18Expiration, new { data_type = "string" })
+    </div>
+
+    <div class="InputBlock">
+        <label for="AlsInhib">AlsInhib</label>
+        @Html.TextBoxFor(model => model.AlsInhib, new { data_type = "string" })
+    </div>
+
+</fieldset>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_Label_Details")
+}
+
+@*@model Picol.Models.Label
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Label</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplementalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplementalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Epa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Epa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sln)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sln)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SlnName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SlnName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ground)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ground)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EpaFieldOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EpaFieldOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EpaFieldTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EpaFieldTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EpaFieldThree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EpaFieldThree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplemental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplemental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spanish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spanish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterLabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EsaNotice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EsaNotice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section18)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section18)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section18Expiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section18Expiration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlsInhib)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlsInhib)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cannabis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cannabis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Processed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulation.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulation.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntendedUser.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntendedUser.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Registrant.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registrant.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignalWord.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignalWord.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usage.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usage.Code)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

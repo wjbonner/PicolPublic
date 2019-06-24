@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "RequestApiKey";
+}
+
+<input type="hidden" id="Source" value="@(ViewData["ApiUse"])" />
+
+<div id="RequestContainer" style="margin:20px;">
+    <div style="text-align:center;">
+        <h2>Request an API Key for account @(ViewData["Account"])</h2>
+    </div>
+
+    <p>
+        An API key will allow you programmatic access to the PICOL database through a REST API.  To request an API key you must accept the Terms of Service, and 
+        describe how you intend to use the API key.  Your request will be reviewed by site administrators, and once approved your API key will be active.  Once you request 
+        your API key you can see and manage it on your account details page.
+    </p>
+
+    <h2>Terms of Service</h2>
+    <hr style="color:crimson;" />
+    @(Html.Raw(ViewData["ApiTos"]))
+
+    <h2>Intended Use</h2>
+    <p>Please answer the following questions and describe your proposed use.</p>
+    <hr style="color:crimson;" />
+    <div id="froala-editor">
+        <p></p>
+    </div>
+
+    <br />
+    Give the key a helpful name<br />
+    <input type="text" id="KeyName" /> 
+
+    <br /><br />
+    <input type="checkbox" id="AcceptTos" /> I accept the Terms of Service governing PICOL API keys.
+
+    <br /><br />
+    <button id="Submit">Submit</button>
+</div>
+
+@section Styles {
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.pkgd.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css")" rel="stylesheet" type="text/css" />
+}
+
+@section scripts
+{
+    @*<script type="text/javascript" src="@(Url.Content("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"))"></script>*@
+    <script type="text/javascript" src="@(Url.Content("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.pkgd.min.js"))"></script>
+    <script> $(function () {  }); </script>
+    @Scripts.Render("~/bundles/Picol_Account_RequestApiKey")
+}

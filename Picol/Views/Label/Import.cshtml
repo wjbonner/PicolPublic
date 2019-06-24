@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Import";
+}
+
+<h2>Import</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset style="width:auto;display:inline-block;margin: 0 10px 0 10px;vertical-align:top;">
+        <legend>Select required values</legend>
+        <div class="InputBlock">
+            <label for="Formulations">Formulations</label>
+            @Html.DropDownList("Formulations", (SelectList)ViewBag.Formulations)
+        </div>
+
+        <div class="InputBlock">
+            <label for="IntendedUsers">IntendedUsers</label>
+            @Html.DropDownList("IntendedUsers", (SelectList)ViewBag.IntendedUsers)
+        </div>
+
+        <div class="InputBlock">
+            <label for="Registrants">Registrants</label>
+            @Html.DropDownList("Registrants", (SelectList)ViewBag.Registrants)
+        </div>
+
+        <div class="InputBlock">
+            <label for="SignalWords">SignalWords</label>
+            @Html.DropDownList("SignalWords", (SelectList)ViewBag.SignalWords)
+        </div>
+
+        <div class="InputBlock">
+            <label for="Usages">Usages</label>
+            @Html.DropDownList("Usages", (SelectList)ViewBag.Usages)
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+}
+

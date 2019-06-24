@@ -1,0 +1,247 @@
+﻿@model Picol.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<h4>User Details</h4>
+<hr />
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+    <legend>Login</legend>
+    <dl class="dl-vertical">
+        @{
+            if (Model.Email.ToLower().Contains("@wsu.edu"))
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Logon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Logon) &nbsp;
+                </dd>
+            }
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+    <legend>History</legend>
+    <dl class="dl-vertical">
+        <dt>
+            Last Login
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastLogin) &nbsp;
+        </dd>
+
+        <dt>
+            Password Last Set
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password.LastSet) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+    <legend>Personal</legend>
+    <dl class="dl-vertical">
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.FirstName) &nbsp;
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.LastName) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+<h4>Default Settings</h4>
+<hr />
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+    <legend>Global</legend>
+    <dl class="dl-vertical">
+        <dt>
+            State
+        </dt>
+
+        <dd>
+            @Html.DropDownList("State", (SelectList)ViewBag.States) &nbsp;
+        </dd>
+
+        <dt>
+            Year
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Year", (SelectList)ViewBag.Years) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+    <legend>Crop</legend>
+    <dl class="dl-vertical">
+        <dt>
+            I-502
+        </dt>
+
+        <dd>
+            @Html.DropDownList("I502", (SelectList)ViewBag.I502s) &nbsp;
+        </dd>
+
+        <dt>
+            ESSB-6206
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Essb", (SelectList)ViewBag.Essbs) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+    <legend>Other</legend>
+    <dl class="dl-vertical">
+        <dt>
+            Organic
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Organic", (SelectList)ViewBag.Organics) &nbsp;
+        </dd>
+
+        <dt>
+            Intended User
+        </dt>
+
+        <dd>
+            @Html.DropDownList("IntendedUser", (SelectList)ViewBag.Users) &nbsp;
+        </dd>
+
+        <dt>
+            Groundwater
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Ground", (SelectList)ViewBag.Grounds) &nbsp;
+        </dd>
+
+        <dt>
+            Spanish
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Spanish", (SelectList)ViewBag.Spanishs) &nbsp;
+        </dd>
+
+        <dt>
+            ESA
+        </dt>
+
+        <dd>
+            @Html.DropDownList("Esa", (SelectList)ViewBag.Esas) &nbsp;
+        </dd>
+    </dl>
+</fieldset>
+
+@{
+    if (Model.ApiKeys.Count() > 0)
+    {
+        <h4>API Keys</h4>
+        <hr />
+
+        foreach (var s in Model.ApiKeys)
+        {
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+                <legend>Key @(s.Name)</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        Key
+                    </dt>
+
+                    <dd>
+                        @s.Value
+                    </dd>
+
+                    <dt>
+                        Requested
+                    </dt>
+
+                    <dd>
+                        @s.DateAccepted
+                    </dd>
+
+                    <dt>
+                        Approved
+                    </dt>
+
+                    <dd>
+                        @s.Approved
+                    </dd>
+
+                    <dt>
+                        Active
+                    </dt>
+
+                    <dd>
+                        @s.Active
+                    </dd>
+                </dl>
+            </fieldset>
+        }
+    }
+}
+
+@{
+    if (Model.Searches.Count() > 0)
+    {
+        <h4>Saved Searches</h4>
+        <hr />
+
+                    <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+                        <legend>Searches</legend>
+                        <dl class="dl-vertical">
+                            @{
+                                foreach (var s in Model.Searches)
+                                {
+                                    <dt style="width:auto;">
+                                        <input type="text" value="@s.Name" id="Search_@s.Id" data-id="@s.Id" />
+                                    </dt>
+                                    <dd>
+                                        <a href="@(s.Path)/@(s.Id)" target="_blank">Run again</a> |
+                                        <a href="~/Account/DeleteSearch/@(s.Id)" onclick="return confirm('Are you sure you want to delete this search?')">Delete</a>
+                                    </dd>
+                                }
+                            }
+                        </dl>
+                    </fieldset>
+                                }
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_Account_Details")
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Picol.Models.ApplicationHistory>
+
+@{
+    ViewBag.Title = "ReviewHistory";
+}
+
+<h2>Account Activity</h2>
+
+<div>
+    <p>
+        This page shows the activity on this site associated with your account.  Please see our <a href="~/Home/PrivacyPolicy">Privacy Policy</a> 
+        to understand your rights related to this data.
+    </p>
+
+    <p>
+        To remove all history records associated with your account, <a href="~/Account/ClearHistory" onclick="return confirm('This action is irreversible and could limit our ability to troubleshoot your account.  Please confirm the deletion of your account activity.')">click here</a>.
+    </p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Application)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QueryString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Form)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QueryString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Form)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IpAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+    </tr>
+}
+
+</table>

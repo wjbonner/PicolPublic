@@ -1,0 +1,2161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PicolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PicolModelStoreContainer">
+    <EntitySet Name="Applications" EntityType="PicolModel.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Crops" EntityType="PicolModel.Store.Crops" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Formulations" EntityType="PicolModel.Store.Formulations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ingredients" EntityType="PicolModel.Store.Ingredients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IntendedUsers" EntityType="PicolModel.Store.IntendedUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Passwords" EntityType="PicolModel.Store.Passwords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pests" EntityType="PicolModel.Store.Pests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Registrants" EntityType="PicolModel.Store.Registrants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Resistances" EntityType="PicolModel.Store.Resistances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SignalWords" EntityType="PicolModel.Store.SignalWords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="PicolModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IngredientLabelPairs" EntityType="PicolModel.Store.IngredientLabelPairs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LabelCropPestTriples" EntityType="PicolModel.Store.LabelCropPestTriples" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usages" EntityType="PicolModel.Store.Usages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegulationAuthorities" EntityType="PicolModel.Store.RegulationAuthorities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CropGroups" EntityType="PicolModel.Store.CropGroups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="States" EntityType="PicolModel.Store.States" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UploadedFiles" EntityType="PicolModel.Store.UploadedFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PesticideTypes" EntityType="PicolModel.Store.PesticideTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StateRecords" EntityType="PicolModel.Store.StateRecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LabelFiles" EntityType="PicolModel.Store.LabelFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Labels" EntityType="PicolModel.Store.Labels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPreferences" EntityType="PicolModel.Store.UserPreferences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Settings" EntityType="PicolModel.Store.Settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApiKeys" EntityType="PicolModel.Store.ApiKeys" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BinarySettings" EntityType="PicolModel.Store.BinarySettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LabelResults" EntityType="PicolModel.Store.LabelResults" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Searches" EntityType="PicolModel.Store.Searches" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegulationAuthorityUsagePairs" EntityType="PicolModel.Store.RegulationAuthorityUsagePairs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CropGroupPairs" EntityType="PicolModel.Store.CropGroupPairs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationLabelPairs" EntityType="PicolModel.Store.ApplicationLabelPairs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LabelPesticideTypePairs" EntityType="PicolModel.Store.LabelPesticideTypePairs" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_LabelCropPestTriples_Crops" Association="PicolModel.Store.FK_LabelCropPestTriples_Crops">
+      <End Role="Crop" EntitySet="Crops" />
+      <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IngredientLabelPairs_Ingredients" Association="PicolModel.Store.FK_IngredientLabelPairs_Ingredients">
+      <End Role="Ingredient" EntitySet="Ingredients" />
+      <End Role="IngredientLabelPair" EntitySet="IngredientLabelPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredients_Resistances" Association="PicolModel.Store.FK_Ingredients_Resistances">
+      <End Role="Resistance" EntitySet="Resistances" />
+      <End Role="Ingredient" EntitySet="Ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passwords_Users" Association="PicolModel.Store.FK_Passwords_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Password" EntitySet="Passwords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelCropPestTriples_Pests" Association="PicolModel.Store.FK_LabelCropPestTriples_Pests">
+      <End Role="Pest" EntitySet="Pests" />
+      <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegulationAuthorityUsagePairs_RegulationAuthority" Association="PicolModel.Store.FK_RegulationAuthorityUsagePairs_RegulationAuthority">
+      <End Role="RegulationAuthority" EntitySet="RegulationAuthorities" />
+      <End Role="RegulationAuthorityUsagePairs" EntitySet="RegulationAuthorityUsagePairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegulationAuthorityUsagePairs_Usage" Association="PicolModel.Store.FK_RegulationAuthorityUsagePairs_Usage">
+      <End Role="Usage" EntitySet="Usages" />
+      <End Role="RegulationAuthorityUsagePairs" EntitySet="RegulationAuthorityUsagePairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CropGroupPairs_CropGroup" Association="PicolModel.Store.FK_CropGroupPairs_CropGroup">
+      <End Role="CropGroup" EntitySet="CropGroups" />
+      <End Role="CropGroupPairs" EntitySet="CropGroupPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CropGroupPairs_Crop" Association="PicolModel.Store.FK_CropGroupPairs_Crop">
+      <End Role="Crop" EntitySet="Crops" />
+      <End Role="CropGroupPairs" EntitySet="CropGroupPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateRecords_States" Association="PicolModel.Store.FK_StateRecords_States">
+      <End Role="State" EntitySet="States" />
+      <End Role="StateRecord" EntitySet="StateRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelFiles_States" Association="PicolModel.Store.FK_LabelFiles_States">
+      <End Role="State" EntitySet="States" />
+      <End Role="LabelFile" EntitySet="LabelFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Labels_Formulations" Association="PicolModel.Store.FK_Labels_Formulations">
+      <End Role="Formulation" EntitySet="Formulations" />
+      <End Role="Label" EntitySet="Labels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Labels_IntendedUsers" Association="PicolModel.Store.FK_Labels_IntendedUsers">
+      <End Role="IntendedUser" EntitySet="IntendedUsers" />
+      <End Role="Label" EntitySet="Labels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelFiles_Labels" Association="PicolModel.Store.FK_LabelFiles_Labels">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="LabelFile" EntitySet="LabelFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IngredientLabelPairs_Labels" Association="PicolModel.Store.FK_IngredientLabelPairs_Labels">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="IngredientLabelPair" EntitySet="IngredientLabelPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelCropPestTriples_Labels" Association="PicolModel.Store.FK_LabelCropPestTriples_Labels">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Labels_Registrants" Association="PicolModel.Store.FK_Labels_Registrants">
+      <End Role="Registrant" EntitySet="Registrants" />
+      <End Role="Label" EntitySet="Labels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Labels_SignalWords" Association="PicolModel.Store.FK_Labels_SignalWords">
+      <End Role="SignalWord" EntitySet="SignalWords" />
+      <End Role="Label" EntitySet="Labels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Labels_Usages" Association="PicolModel.Store.FK_Labels_Usages">
+      <End Role="Usage" EntitySet="Usages" />
+      <End Role="Label" EntitySet="Labels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateRecords_Labels" Association="PicolModel.Store.FK_StateRecords_Labels">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="StateRecord" EntitySet="StateRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationLabelPairs_Application" Association="PicolModel.Store.FK_ApplicationLabelPairs_Application">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="ApplicationLabelPairs" EntitySet="ApplicationLabelPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationLabelPairs_Label" Association="PicolModel.Store.FK_ApplicationLabelPairs_Label">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="ApplicationLabelPairs" EntitySet="ApplicationLabelPairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelPesticideTypePairs_Label" Association="PicolModel.Store.FK_LabelPesticideTypePairs_Label">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="LabelPesticideTypePairs" EntitySet="LabelPesticideTypePairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabelPesticideTypePairs_PesticideType" Association="PicolModel.Store.FK_LabelPesticideTypePairs_PesticideType">
+      <End Role="PesticideType" EntitySet="PesticideTypes" />
+      <End Role="LabelPesticideTypePairs" EntitySet="LabelPesticideTypePairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPreferences_Users" Association="PicolModel.Store.FK_UserPreferences_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserPreference" EntitySet="UserPreferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApiKeys_Users" Association="PicolModel.Store.FK_ApiKeys_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ApiKey" EntitySet="ApiKeys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApiKeys_Users_Approver" Association="PicolModel.Store.FK_ApiKeys_Users_Approver">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ApiKey" EntitySet="ApiKeys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Searches_Users" Association="PicolModel.Store.FK_Searches_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Search" EntitySet="Searches" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Crops">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Formulations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Ingredients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResistanceId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="12" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="85" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="ManagementCode" Type="varchar" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="IntendedUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Passwords">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Hash" Type="varchar" Nullable="false" MaxLength="2048" />
+    <Property Name="LastSet" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Registrants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="AddressOne" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="AddressTwo" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="State" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Zip" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="Country" Type="varchar" Nullable="true" MaxLength="16" />
+    <Property Name="Foreign" Type="smallint" Nullable="false" />
+    <Property Name="Contact" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="EmergencyPhone" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="256" />
+    <Property Name="Tier" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Resistances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Source" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="Code" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="MethodOfAction" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="Rid" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SignalWords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Logon" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="FirstName" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="LastName" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Verified" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Admin" Type="bit" Nullable="false" />
+    <Property Name="LastLogin" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IngredientLabelPairs">
+    <Key>
+      <PropertyRef Name="LabelId" />
+      <PropertyRef Name="IngredientId" />
+      <PropertyRef Name="Concentration" />
+    </Key>
+    <Property Name="LabelId" Type="int" Nullable="false" />
+    <Property Name="IngredientId" Type="int" Nullable="false" />
+    <Property Name="Concentration" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="LabelCropPestTriples">
+    <Key>
+      <PropertyRef Name="LabelId" />
+      <PropertyRef Name="CropId" />
+      <PropertyRef Name="PestId" />
+    </Key>
+    <Property Name="LabelId" Type="int" Nullable="false" />
+    <Property Name="CropId" Type="int" Nullable="false" />
+    <Property Name="PestId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="RegulationAuthorities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="CropGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="UploadedFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Revisions" Type="int" Nullable="false" />
+    <Property Name="Cancellations" Type="int" Nullable="false" />
+    <Property Name="Reviewed" Type="bit" Nullable="false" />
+    <Property Name="Transit" Type="bit" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PesticideTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Prefix" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="StateRecords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="LabelId" Type="int" Nullable="false" />
+    <Property Name="AgencyId" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Version" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Pdf" Type="datetime" Nullable="false" />
+    <Property Name="I502" Type="bit" Nullable="false" />
+    <Property Name="Essb6206" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabelFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabelId" Type="int" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Labels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pid" Type="int" Nullable="true" />
+    <Property Name="FormulationId" Type="int" Nullable="true" />
+    <Property Name="IntendedUserId" Type="int" Nullable="true" />
+    <Property Name="RegistrantId" Type="int" Nullable="true" />
+    <Property Name="SignalWordId" Type="int" Nullable="true" />
+    <Property Name="UsageId" Type="int" Nullable="true" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="85" />
+    <Property Name="Supplemental" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="SupplementalName" Type="varchar" Nullable="true" MaxLength="150" />
+    <Property Name="SupplementalExpiration" Type="datetime" Nullable="true" />
+    <Property Name="Epa" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="Sln" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="SlnName" Type="varchar" Nullable="true" MaxLength="150" />
+    <Property Name="SlnExpiration" Type="datetime" Nullable="true" />
+    <Property Name="Ground" Type="bit" Nullable="true" />
+    <Property Name="EpaFieldOne" Type="int" Nullable="true" />
+    <Property Name="EpaFieldTwo" Type="int" Nullable="true" />
+    <Property Name="EpaFieldThree" Type="int" Nullable="true" />
+    <Property Name="Spanish" Type="bit" Nullable="true" />
+    <Property Name="Organic" Type="bit" Nullable="true" />
+    <Property Name="MasterLabel" Type="varchar" Nullable="true" MaxLength="5" />
+    <Property Name="EsaNotice" Type="bit" Nullable="true" />
+    <Property Name="Section18" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Section18Expiration" Type="datetime" Nullable="true" />
+    <Property Name="AlsInhib" Type="varchar" Nullable="true" MaxLength="3" />
+    <Property Name="Created" Type="datetime" Nullable="true" />
+    <Property Name="Updated" Type="datetime" Nullable="true" />
+    <Property Name="Processed" Type="bit" Nullable="true" />
+    <Property Name="Active" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserPreferences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Value" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="Value" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApiKeys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Value" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="TermsOfService" Type="varchar(max)" Nullable="false" />
+    <Property Name="DateAccepted" Type="datetime" Nullable="false" />
+    <Property Name="ProposedUse" Type="varchar(max)" Nullable="false" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="ApprovedBy" Type="int" Nullable="true" />
+    <Property Name="ApprovalDate" Type="datetime" Nullable="true" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="512" />
+  </EntityType>
+  <EntityType Name="BinarySettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Value" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Public" Type="bit" Nullable="false" />
+    <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Manageable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabelResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="WsdaLineNum" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="OrPid" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="CurrentlyRegisteredWashington" Type="bit" Nullable="true" />
+    <Property Name="CurrentlyRegisteredOregon" Type="bit" Nullable="true" />
+    <Property Name="Epa" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="EpaOne" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="EpaTwo" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="EpaThree" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="IntendedUser" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="Ingredients" Type="varchar" Nullable="true" MaxLength="512" />
+    <Property Name="ResistanceCode" Type="varchar" Nullable="true" MaxLength="512" />
+    <Property Name="ResistanceSource" Type="varchar" Nullable="true" MaxLength="512" />
+    <Property Name="Concentrations" Type="varchar" Nullable="true" MaxLength="512" />
+    <Property Name="PesticideTypes" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="RegistrantName" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="Sln" Type="varchar" Nullable="true" MaxLength="192" />
+    <Property Name="Supplemental" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="Formulation" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="SignalWord" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="Usage" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="SupplementalName" Type="varchar" Nullable="true" MaxLength="192" />
+    <Property Name="SupplementalExpiration" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="SlnName" Type="varchar" Nullable="true" MaxLength="192" />
+    <Property Name="SlnExpiration" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="Spanish" Type="bit" Nullable="true" />
+    <Property Name="Organic" Type="bit" Nullable="true" />
+    <Property Name="EsaNotice" Type="bit" Nullable="true" />
+    <Property Name="Section18" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="Section18Expiration" Type="varchar" Nullable="true" MaxLength="64" />
+    <Property Name="I502" Type="bit" Nullable="true" />
+    <Property Name="Essb" Type="bit" Nullable="true" />
+    <Property Name="WashingtonDownload" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="OregonDownload" Type="varchar" Nullable="true" MaxLength="128" />
+    <Property Name="WashingtonRegistrationYear" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="OregonRegistrationYear" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="Searches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Parameters" Type="varchar(max)" Nullable="false" />
+    <Property Name="Path" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="RegulationAuthorityUsagePairs">
+    <Key>
+      <PropertyRef Name="RegulationAuthorities_Id" />
+      <PropertyRef Name="Usages_Id" />
+    </Key>
+    <Property Name="RegulationAuthorities_Id" Type="int" Nullable="false" />
+    <Property Name="Usages_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CropGroupPairs">
+    <Key>
+      <PropertyRef Name="CropGroups_Id" />
+      <PropertyRef Name="Crops_Id" />
+    </Key>
+    <Property Name="CropGroups_Id" Type="int" Nullable="false" />
+    <Property Name="Crops_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationLabelPairs">
+    <Key>
+      <PropertyRef Name="Applications_Id" />
+      <PropertyRef Name="Labels_Id" />
+    </Key>
+    <Property Name="Applications_Id" Type="int" Nullable="false" />
+    <Property Name="Labels_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabelPesticideTypePairs">
+    <Key>
+      <PropertyRef Name="Labels_Id" />
+      <PropertyRef Name="PesticideTypes_Id" />
+    </Key>
+    <Property Name="Labels_Id" Type="int" Nullable="false" />
+    <Property Name="PesticideTypes_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LabelCropPestTriples_Crops">
+    <End Role="Crop" Type="PicolModel.Store.Crops" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LabelCropPestTriple" Type="PicolModel.Store.LabelCropPestTriples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelCropPestTriple">
+        <PropertyRef Name="CropId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IngredientLabelPairs_Ingredients">
+    <End Role="Ingredient" Type="PicolModel.Store.Ingredients" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IngredientLabelPair" Type="PicolModel.Store.IngredientLabelPairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IngredientLabelPair">
+        <PropertyRef Name="IngredientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredients_Resistances">
+    <End Role="Resistance" Type="PicolModel.Store.Resistances" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ingredient" Type="PicolModel.Store.Ingredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resistance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="ResistanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passwords_Users">
+    <End Role="User" Type="PicolModel.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Password" Type="PicolModel.Store.Passwords" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Password">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelCropPestTriples_Pests">
+    <End Role="Pest" Type="PicolModel.Store.Pests" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LabelCropPestTriple" Type="PicolModel.Store.LabelCropPestTriples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelCropPestTriple">
+        <PropertyRef Name="PestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateRecords_States">
+    <End Role="State" Type="PicolModel.Store.States" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StateRecord" Type="PicolModel.Store.StateRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StateRecord">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelFiles_States">
+    <End Role="State" Type="PicolModel.Store.States" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LabelFile" Type="PicolModel.Store.LabelFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelFile">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Labels_Formulations">
+    <End Role="Formulation" Type="PicolModel.Store.Formulations" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Label">
+        <PropertyRef Name="FormulationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Labels_IntendedUsers">
+    <End Role="IntendedUser" Type="PicolModel.Store.IntendedUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IntendedUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Label">
+        <PropertyRef Name="IntendedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelFiles_Labels">
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LabelFile" Type="PicolModel.Store.LabelFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelFile">
+        <PropertyRef Name="LabelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IngredientLabelPairs_Labels">
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IngredientLabelPair" Type="PicolModel.Store.IngredientLabelPairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IngredientLabelPair">
+        <PropertyRef Name="LabelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelCropPestTriples_Labels">
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LabelCropPestTriple" Type="PicolModel.Store.LabelCropPestTriples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelCropPestTriple">
+        <PropertyRef Name="LabelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Labels_Registrants">
+    <End Role="Registrant" Type="PicolModel.Store.Registrants" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registrant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Label">
+        <PropertyRef Name="RegistrantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Labels_SignalWords">
+    <End Role="SignalWord" Type="PicolModel.Store.SignalWords" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SignalWord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Label">
+        <PropertyRef Name="SignalWordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Labels_Usages">
+    <End Role="Usage" Type="PicolModel.Store.Usages" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Label">
+        <PropertyRef Name="UsageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateRecords_Labels">
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StateRecord" Type="PicolModel.Store.StateRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StateRecord">
+        <PropertyRef Name="LabelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPreferences_Users">
+    <End Role="User" Type="PicolModel.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPreference" Type="PicolModel.Store.UserPreferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPreference">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApiKeys_Users">
+    <End Role="User" Type="PicolModel.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ApiKey" Type="PicolModel.Store.ApiKeys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApiKey">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApiKeys_Users_Approver">
+    <End Role="User" Type="PicolModel.Store.Users" Multiplicity="0..1" />
+    <End Role="ApiKey" Type="PicolModel.Store.ApiKeys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApiKey">
+        <PropertyRef Name="ApprovedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Searches_Users">
+    <End Role="User" Type="PicolModel.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Search" Type="PicolModel.Store.Searches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Search">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegulationAuthorityUsagePairs_RegulationAuthority">
+    <End Role="RegulationAuthority" Type="PicolModel.Store.RegulationAuthorities" Multiplicity="1" />
+    <End Role="RegulationAuthorityUsagePairs" Type="PicolModel.Store.RegulationAuthorityUsagePairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegulationAuthority">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegulationAuthorityUsagePairs">
+        <PropertyRef Name="RegulationAuthorities_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegulationAuthorityUsagePairs_Usage">
+    <End Role="RegulationAuthorityUsagePairs" Type="PicolModel.Store.RegulationAuthorityUsagePairs" Multiplicity="*" />
+    <End Role="Usage" Type="PicolModel.Store.Usages" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Usage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegulationAuthorityUsagePairs">
+        <PropertyRef Name="Usages_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CropGroupPairs_CropGroup">
+    <End Role="CropGroup" Type="PicolModel.Store.CropGroups" Multiplicity="1" />
+    <End Role="CropGroupPairs" Type="PicolModel.Store.CropGroupPairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CropGroupPairs">
+        <PropertyRef Name="CropGroups_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CropGroupPairs_Crop">
+    <End Role="CropGroupPairs" Type="PicolModel.Store.CropGroupPairs" Multiplicity="*" />
+    <End Role="Crop" Type="PicolModel.Store.Crops" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Crop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CropGroupPairs">
+        <PropertyRef Name="Crops_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationLabelPairs_Application">
+    <End Role="Application" Type="PicolModel.Store.Applications" Multiplicity="1" />
+    <End Role="ApplicationLabelPairs" Type="PicolModel.Store.ApplicationLabelPairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApplicationLabelPairs">
+        <PropertyRef Name="Applications_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationLabelPairs_Label">
+    <End Role="ApplicationLabelPairs" Type="PicolModel.Store.ApplicationLabelPairs" Multiplicity="*" />
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApplicationLabelPairs">
+        <PropertyRef Name="Labels_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelPesticideTypePairs_Label">
+    <End Role="Label" Type="PicolModel.Store.Labels" Multiplicity="1" />
+    <End Role="LabelPesticideTypePairs" Type="PicolModel.Store.LabelPesticideTypePairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelPesticideTypePairs">
+        <PropertyRef Name="Labels_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabelPesticideTypePairs_PesticideType">
+    <End Role="LabelPesticideTypePairs" Type="PicolModel.Store.LabelPesticideTypePairs" Multiplicity="*" />
+    <End Role="PesticideType" Type="PicolModel.Store.PesticideTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PesticideType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabelPesticideTypePairs">
+        <PropertyRef Name="PesticideTypes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PicolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PicolEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applications" EntityType="PicolModel.Application" />
+          <EntitySet Name="Crops" EntityType="PicolModel.Crop" />
+          <EntitySet Name="Formulations" EntityType="PicolModel.Formulation" />
+          <EntitySet Name="Ingredients" EntityType="PicolModel.Ingredient" />
+          <EntitySet Name="IntendedUsers" EntityType="PicolModel.IntendedUser" />
+          <EntitySet Name="Passwords" EntityType="PicolModel.Password" />
+          <EntitySet Name="Pests" EntityType="PicolModel.Pest" />
+          <EntitySet Name="Registrants" EntityType="PicolModel.Registrant" />
+          <EntitySet Name="Resistances" EntityType="PicolModel.Resistance" />
+          <EntitySet Name="SignalWords" EntityType="PicolModel.SignalWord" />
+          <EntitySet Name="Users" EntityType="PicolModel.User" />
+          <EntitySet Name="IngredientLabelPairs" EntityType="PicolModel.IngredientLabelPair" />
+          <EntitySet Name="LabelCropPestTriples" EntityType="PicolModel.LabelCropPestTriple" />
+          <AssociationSet Name="FK_LabelCropPestTriples_Crops" Association="PicolModel.FK_LabelCropPestTriples_Crops">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngredientLabelPairs_Ingredients" Association="PicolModel.FK_IngredientLabelPairs_Ingredients">
+            <End Role="Ingredient" EntitySet="Ingredients" />
+            <End Role="IngredientLabelPair" EntitySet="IngredientLabelPairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Resistances" Association="PicolModel.FK_Ingredients_Resistances">
+            <End Role="Resistance" EntitySet="Resistances" />
+            <End Role="Ingredient" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passwords_Users" Association="PicolModel.FK_Passwords_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Password" EntitySet="Passwords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LabelCropPestTriples_Pests" Association="PicolModel.FK_LabelCropPestTriples_Pests">
+            <End Role="Pest" EntitySet="Pests" />
+            <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+          </AssociationSet>
+          <EntitySet Name="Usages" EntityType="PicolModel.Usage" />
+          <EntitySet Name="RegulationAuthorities" EntityType="PicolModel.RegulationAuthority" />
+          <AssociationSet Name="RegulationAuthorityUsagePairs" Association="PicolModel.RegulationAuthorityUsagePairs">
+            <End Role="RegulationAuthority" EntitySet="RegulationAuthorities" />
+            <End Role="Usage" EntitySet="Usages" />
+          </AssociationSet>
+          <EntitySet Name="CropGroups" EntityType="PicolModel.CropGroup" />
+          <AssociationSet Name="CropGroupPairs" Association="PicolModel.CropGroupPairs">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="Crop" EntitySet="Crops" />
+          </AssociationSet>
+          <EntitySet Name="States" EntityType="PicolModel.State" />
+          <EntitySet Name="UploadedFiles" EntityType="PicolModel.UploadedFile" />
+          <EntitySet Name="PesticideTypes" EntityType="PicolModel.PesticideType" />
+          <EntitySet Name="StateRecords" EntityType="PicolModel.StateRecord" />
+          <AssociationSet Name="FK_StateRecords_States" Association="PicolModel.FK_StateRecords_States">
+            <End Role="State" EntitySet="States" />
+            <End Role="StateRecord" EntitySet="StateRecords" />
+          </AssociationSet>
+          <EntitySet Name="LabelFiles" EntityType="PicolModel.LabelFile" />
+          <AssociationSet Name="FK_LabelFiles_States" Association="PicolModel.FK_LabelFiles_States">
+            <End Role="State" EntitySet="States" />
+            <End Role="LabelFile" EntitySet="LabelFiles" />
+          </AssociationSet>
+          <EntitySet Name="Labels" EntityType="PicolModel.Label" />
+          <AssociationSet Name="FK_Labels_Formulations" Association="PicolModel.FK_Labels_Formulations">
+            <End Role="Formulation" EntitySet="Formulations" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labels_IntendedUsers" Association="PicolModel.FK_Labels_IntendedUsers">
+            <End Role="IntendedUser" EntitySet="IntendedUsers" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LabelFiles_Labels" Association="PicolModel.FK_LabelFiles_Labels">
+            <End Role="Label" EntitySet="Labels" />
+            <End Role="LabelFile" EntitySet="LabelFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngredientLabelPairs_Labels" Association="PicolModel.FK_IngredientLabelPairs_Labels">
+            <End Role="Label" EntitySet="Labels" />
+            <End Role="IngredientLabelPair" EntitySet="IngredientLabelPairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LabelCropPestTriples_Labels" Association="PicolModel.FK_LabelCropPestTriples_Labels">
+            <End Role="Label" EntitySet="Labels" />
+            <End Role="LabelCropPestTriple" EntitySet="LabelCropPestTriples" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labels_Registrants" Association="PicolModel.FK_Labels_Registrants">
+            <End Role="Registrant" EntitySet="Registrants" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labels_SignalWords" Association="PicolModel.FK_Labels_SignalWords">
+            <End Role="SignalWord" EntitySet="SignalWords" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labels_Usages" Association="PicolModel.FK_Labels_Usages">
+            <End Role="Usage" EntitySet="Usages" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateRecords_Labels" Association="PicolModel.FK_StateRecords_Labels">
+            <End Role="Label" EntitySet="Labels" />
+            <End Role="StateRecord" EntitySet="StateRecords" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationLabelPairs" Association="PicolModel.ApplicationLabelPairs">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="Label" EntitySet="Labels" />
+          </AssociationSet>
+          <AssociationSet Name="LabelPesticideTypePairs" Association="PicolModel.LabelPesticideTypePairs">
+            <End Role="Label" EntitySet="Labels" />
+            <End Role="PesticideType" EntitySet="PesticideTypes" />
+          </AssociationSet>
+          <EntitySet Name="UserPreferences" EntityType="PicolModel.UserPreference" />
+          <AssociationSet Name="FK_UserPreferences_Users" Association="PicolModel.FK_UserPreferences_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <EntitySet Name="Settings" EntityType="PicolModel.Setting" />
+          <EntitySet Name="ApiKeys" EntityType="PicolModel.ApiKey" />
+          <AssociationSet Name="FK_ApiKeys_Users" Association="PicolModel.FK_ApiKeys_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ApiKey" EntitySet="ApiKeys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApiKeys_Users_Approver" Association="PicolModel.FK_ApiKeys_Users_Approver">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ApiKey" EntitySet="ApiKeys" />
+          </AssociationSet>
+          <EntitySet Name="BinarySettings" EntityType="PicolModel.BinarySetting" />
+          <EntitySet Name="LabelResults" EntityType="PicolModel.LabelResult" />
+          <FunctionImport Name="LaunchPicolLoad" />
+          <EntitySet Name="Searches" EntityType="PicolModel.Search" />
+          <AssociationSet Name="FK_Searches_Users" Association="PicolModel.FK_Searches_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Search" EntitySet="Searches" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.ApplicationLabelPairs" FromRole="Application" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="Crop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LabelCropPestTriples" Relationship="PicolModel.FK_LabelCropPestTriples_Crops" FromRole="Crop" ToRole="LabelCropPestTriple" />
+          <NavigationProperty Name="CropGroups" Relationship="PicolModel.CropGroupPairs" FromRole="Crop" ToRole="CropGroup" />
+        </EntityType>
+        <EntityType Name="Formulation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.FK_Labels_Formulations" FromRole="Formulation" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResistanceId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="85" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ManagementCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IngredientLabelPairs" Relationship="PicolModel.FK_IngredientLabelPairs_Ingredients" FromRole="Ingredient" ToRole="IngredientLabelPair" />
+          <NavigationProperty Name="Resistance" Relationship="PicolModel.FK_Ingredients_Resistances" FromRole="Ingredient" ToRole="Resistance" />
+        </EntityType>
+        <EntityType Name="IntendedUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.FK_Labels_IntendedUsers" FromRole="IntendedUser" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Hash" Type="String" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="PicolModel.FK_Passwords_Users" FromRole="Password" ToRole="User" />
+          <Property Name="LastSet" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Pest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LabelCropPestTriples" Relationship="PicolModel.FK_LabelCropPestTriples_Pests" FromRole="Pest" ToRole="LabelCropPestTriple" />
+        </EntityType>
+        <EntityType Name="Registrant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOne" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="AddressTwo" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Foreign" Type="Int16" Nullable="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="EmergencyPhone" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Tier" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.FK_Labels_Registrants" FromRole="Registrant" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="Resistance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Source" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MethodOfAction" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingredients" Relationship="PicolModel.FK_Ingredients_Resistances" FromRole="Resistance" ToRole="Ingredient" />
+          <Property Name="Rid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SignalWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.FK_Labels_SignalWords" FromRole="SignalWord" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Logon" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Verified" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Password" Relationship="PicolModel.FK_Passwords_Users" FromRole="User" ToRole="Password" />
+          <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserPreferences" Relationship="PicolModel.FK_UserPreferences_Users" FromRole="User" ToRole="UserPreference" />
+          <NavigationProperty Name="ApiKeys" Relationship="PicolModel.FK_ApiKeys_Users" FromRole="User" ToRole="ApiKey" />
+          <NavigationProperty Name="ApiKeys1" Relationship="PicolModel.FK_ApiKeys_Users_Approver" FromRole="User" ToRole="ApiKey" />
+          <NavigationProperty Name="Searches" Relationship="PicolModel.FK_Searches_Users" FromRole="User" ToRole="Search" />
+          </EntityType>
+        <EntityType Name="IngredientLabelPair">
+          <Key>
+            <PropertyRef Name="LabelId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="Concentration" />
+          </Key>
+          <Property Name="LabelId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="Concentration" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingredient" Relationship="PicolModel.FK_IngredientLabelPairs_Ingredients" FromRole="IngredientLabelPair" ToRole="Ingredient" />
+          <NavigationProperty Name="Label" Relationship="PicolModel.FK_IngredientLabelPairs_Labels" FromRole="IngredientLabelPair" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="LabelCropPestTriple">
+          <Key>
+            <PropertyRef Name="LabelId" />
+            <PropertyRef Name="CropId" />
+            <PropertyRef Name="PestId" />
+          </Key>
+          <Property Name="LabelId" Type="Int32" Nullable="false" />
+          <Property Name="CropId" Type="Int32" Nullable="false" />
+          <Property Name="PestId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Crop" Relationship="PicolModel.FK_LabelCropPestTriples_Crops" FromRole="LabelCropPestTriple" ToRole="Crop" />
+          <NavigationProperty Name="Pest" Relationship="PicolModel.FK_LabelCropPestTriples_Pests" FromRole="LabelCropPestTriple" ToRole="Pest" />
+          <NavigationProperty Name="Label" Relationship="PicolModel.FK_LabelCropPestTriples_Labels" FromRole="LabelCropPestTriple" ToRole="Label" />
+        </EntityType>
+        <Association Name="FK_LabelCropPestTriples_Crops">
+          <End Type="PicolModel.Crop" Role="Crop" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.LabelCropPestTriple" Role="LabelCropPestTriple" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LabelCropPestTriple">
+              <PropertyRef Name="CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngredientLabelPairs_Ingredients">
+          <End Type="PicolModel.Ingredient" Role="Ingredient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.IngredientLabelPair" Role="IngredientLabelPair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IngredientLabelPair">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Resistances">
+          <End Type="PicolModel.Resistance" Role="Resistance" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resistance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="ResistanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passwords_Users">
+          <End Type="PicolModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Password" Role="Password" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Password">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LabelCropPestTriples_Pests">
+          <End Type="PicolModel.Pest" Role="Pest" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.LabelCropPestTriple" Role="LabelCropPestTriple" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LabelCropPestTriple">
+              <PropertyRef Name="PestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RegulationAuthorities" Relationship="PicolModel.RegulationAuthorityUsagePairs" FromRole="Usage" ToRole="RegulationAuthority" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.FK_Labels_Usages" FromRole="Usage" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="RegulationAuthority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usages" Relationship="PicolModel.RegulationAuthorityUsagePairs" FromRole="RegulationAuthority" ToRole="Usage" />
+        </EntityType>
+        <Association Name="RegulationAuthorityUsagePairs">
+          <End Type="PicolModel.RegulationAuthority" Role="RegulationAuthority" Multiplicity="*" />
+          <End Type="PicolModel.Usage" Role="Usage" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CropGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Crops" Relationship="PicolModel.CropGroupPairs" FromRole="CropGroup" ToRole="Crop" />
+        </EntityType>
+        <Association Name="CropGroupPairs">
+          <End Type="PicolModel.CropGroup" Role="CropGroup" Multiplicity="*" />
+          <End Type="PicolModel.Crop" Role="Crop" Multiplicity="*" />
+        </Association>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StateRecords" Relationship="PicolModel.FK_StateRecords_States" FromRole="State" ToRole="StateRecord" />
+          <NavigationProperty Name="LabelFiles" Relationship="PicolModel.FK_LabelFiles_States" FromRole="State" ToRole="LabelFile" />
+        </EntityType>
+        <EntityType Name="UploadedFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Revisions" Type="Int32" Nullable="false" />
+          <Property Name="Cancellations" Type="Int32" Nullable="false" />
+          <Property Name="Reviewed" Type="Boolean" Nullable="false" />
+          <Property Name="Transit" Type="Boolean" Nullable="false" />
+          <Property Name="Updated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PesticideType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Prefix" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labels" Relationship="PicolModel.LabelPesticideTypePairs" FromRole="PesticideType" ToRole="Label" />
+        </EntityType>
+        <EntityType Name="StateRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="LabelId" Type="Int32" Nullable="false" />
+          <Property Name="AgencyId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Pdf" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="State" Relationship="PicolModel.FK_StateRecords_States" FromRole="StateRecord" ToRole="State" />
+          <Property Name="I502" Type="Boolean" Nullable="false" />
+          <Property Name="Essb6206" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Label" Relationship="PicolModel.FK_StateRecords_Labels" FromRole="StateRecord" ToRole="Label" />
+        </EntityType>
+        <Association Name="FK_StateRecords_States">
+          <End Type="PicolModel.State" Role="State" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.StateRecord" Role="StateRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StateRecord">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LabelFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LabelId" Type="Int32" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="State" Relationship="PicolModel.FK_LabelFiles_States" FromRole="LabelFile" ToRole="State" />
+          <NavigationProperty Name="Label" Relationship="PicolModel.FK_LabelFiles_Labels" FromRole="LabelFile" ToRole="Label" />
+        </EntityType>
+        <Association Name="FK_LabelFiles_States">
+          <End Type="PicolModel.State" Role="State" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.LabelFile" Role="LabelFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LabelFile">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Label">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pid" Type="Int32" />
+          <Property Name="FormulationId" Type="Int32" />
+          <Property Name="IntendedUserId" Type="Int32" />
+          <Property Name="RegistrantId" Type="Int32" />
+          <Property Name="SignalWordId" Type="Int32" />
+          <Property Name="UsageId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="85" FixedLength="false" Unicode="false" />
+          <Property Name="Supplemental" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplementalName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SupplementalExpiration" Type="DateTime" Precision="3" />
+          <Property Name="Epa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Sln" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SlnName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SlnExpiration" Type="DateTime" Precision="3" />
+          <Property Name="Ground" Type="Boolean" />
+          <Property Name="EpaFieldOne" Type="Int32" />
+          <Property Name="EpaFieldTwo" Type="Int32" />
+          <Property Name="EpaFieldThree" Type="Int32" />
+          <Property Name="Spanish" Type="Boolean" />
+          <Property Name="Organic" Type="Boolean" />
+          <Property Name="MasterLabel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="EsaNotice" Type="Boolean" />
+          <Property Name="Section18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Section18Expiration" Type="DateTime" Precision="3" />
+          <Property Name="AlsInhib" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="Processed" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="Formulation" Relationship="PicolModel.FK_Labels_Formulations" FromRole="Label" ToRole="Formulation" />
+          <NavigationProperty Name="IntendedUser" Relationship="PicolModel.FK_Labels_IntendedUsers" FromRole="Label" ToRole="IntendedUser" />
+          <NavigationProperty Name="LabelFiles" Relationship="PicolModel.FK_LabelFiles_Labels" FromRole="Label" ToRole="LabelFile" />
+          <NavigationProperty Name="IngredientLabelPairs" Relationship="PicolModel.FK_IngredientLabelPairs_Labels" FromRole="Label" ToRole="IngredientLabelPair" />
+          <NavigationProperty Name="LabelCropPestTriples" Relationship="PicolModel.FK_LabelCropPestTriples_Labels" FromRole="Label" ToRole="LabelCropPestTriple" />
+          <NavigationProperty Name="Registrant" Relationship="PicolModel.FK_Labels_Registrants" FromRole="Label" ToRole="Registrant" />
+          <NavigationProperty Name="SignalWord" Relationship="PicolModel.FK_Labels_SignalWords" FromRole="Label" ToRole="SignalWord" />
+          <NavigationProperty Name="Usage" Relationship="PicolModel.FK_Labels_Usages" FromRole="Label" ToRole="Usage" />
+          <NavigationProperty Name="StateRecords" Relationship="PicolModel.FK_StateRecords_Labels" FromRole="Label" ToRole="StateRecord" />
+          <NavigationProperty Name="Applications" Relationship="PicolModel.ApplicationLabelPairs" FromRole="Label" ToRole="Application" />
+          <NavigationProperty Name="PesticideTypes" Relationship="PicolModel.LabelPesticideTypePairs" FromRole="Label" ToRole="PesticideType" />
+        </EntityType>
+        <Association Name="FK_Labels_Formulations">
+          <End Type="PicolModel.Formulation" Role="Formulation" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formulation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Label">
+              <PropertyRef Name="FormulationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labels_IntendedUsers">
+          <End Type="PicolModel.IntendedUser" Role="IntendedUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IntendedUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Label">
+              <PropertyRef Name="IntendedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LabelFiles_Labels">
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.LabelFile" Role="LabelFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LabelFile">
+              <PropertyRef Name="LabelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngredientLabelPairs_Labels">
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.IngredientLabelPair" Role="IngredientLabelPair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IngredientLabelPair">
+              <PropertyRef Name="LabelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LabelCropPestTriples_Labels">
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.LabelCropPestTriple" Role="LabelCropPestTriple" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LabelCropPestTriple">
+              <PropertyRef Name="LabelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labels_Registrants">
+          <End Type="PicolModel.Registrant" Role="Registrant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registrant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Label">
+              <PropertyRef Name="RegistrantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labels_SignalWords">
+          <End Type="PicolModel.SignalWord" Role="SignalWord" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SignalWord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Label">
+              <PropertyRef Name="SignalWordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labels_Usages">
+          <End Type="PicolModel.Usage" Role="Usage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Label">
+              <PropertyRef Name="UsageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateRecords_Labels">
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.StateRecord" Role="StateRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StateRecord">
+              <PropertyRef Name="LabelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationLabelPairs">
+          <End Type="PicolModel.Application" Role="Application" Multiplicity="*" />
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+        </Association>
+        <Association Name="LabelPesticideTypePairs">
+          <End Type="PicolModel.Label" Role="Label" Multiplicity="*" />
+          <End Type="PicolModel.PesticideType" Role="PesticideType" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserPreference">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="PicolModel.FK_UserPreferences_Users" FromRole="UserPreference" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserPreferences_Users">
+          <End Type="PicolModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ApiKey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="TermsOfService" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateAccepted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProposedUse" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="PicolModel.FK_ApiKeys_Users" FromRole="ApiKey" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="PicolModel.FK_ApiKeys_Users_Approver" FromRole="ApiKey" ToRole="User" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_ApiKeys_Users">
+          <End Type="PicolModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.ApiKey" Role="ApiKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApiKey">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApiKeys_Users_Approver">
+          <End Type="PicolModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="PicolModel.ApiKey" Role="ApiKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApiKey">
+              <PropertyRef Name="ApprovedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BinarySetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Public" Type="Boolean" Nullable="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Manageable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LabelResult">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="WsdaLineNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OrPid" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentlyRegisteredWashington" Type="Boolean" />
+          <Property Name="CurrentlyRegisteredOregon" Type="Boolean" />
+          <Property Name="Epa" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="EpaOne" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="EpaTwo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="EpaThree" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="IntendedUser" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Ingredients" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ResistanceCode" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ResistanceSource" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Concentrations" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="PesticideTypes" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="RegistrantName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Sln" Type="String" MaxLength="192" FixedLength="false" Unicode="false" />
+          <Property Name="Supplemental" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Formulation" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SignalWord" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Usage" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SupplementalName" Type="String" MaxLength="192" FixedLength="false" Unicode="false" />
+          <Property Name="SupplementalExpiration" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SlnName" Type="String" MaxLength="192" FixedLength="false" Unicode="false" />
+          <Property Name="SlnExpiration" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Spanish" Type="Boolean" />
+          <Property Name="Organic" Type="Boolean" />
+          <Property Name="EsaNotice" Type="Boolean" />
+          <Property Name="Section18" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Section18Expiration" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="I502" Type="Boolean" />
+          <Property Name="Essb" Type="Boolean" />
+          <Property Name="WashingtonDownload" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="OregonDownload" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="WashingtonRegistrationYear" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="OregonRegistrationYear" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Search">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Parameters" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="PicolModel.FK_Searches_Users" FromRole="Search" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Searches_Users">
+          <End Type="PicolModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PicolModel.Search" Role="Search" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Search">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PicolModelStoreContainer" CdmEntityContainer="PicolEntities">
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Crops">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Crop)">
+        <MappingFragment StoreEntitySet="Crops">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formulations">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Formulation)">
+        <MappingFragment StoreEntitySet="Formulations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Ingredient)">
+        <MappingFragment StoreEntitySet="Ingredients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResistanceId" ColumnName="ResistanceId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ManagementCode" ColumnName="ManagementCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntendedUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.IntendedUser)">
+        <MappingFragment StoreEntitySet="IntendedUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Password)">
+        <MappingFragment StoreEntitySet="Passwords">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="LastSet" ColumnName="LastSet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pests">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Pest)">
+        <MappingFragment StoreEntitySet="Pests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrants">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Registrant)">
+        <MappingFragment StoreEntitySet="Registrants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressOne" ColumnName="AddressOne" />
+          <ScalarProperty Name="AddressTwo" ColumnName="AddressTwo" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Foreign" ColumnName="Foreign" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EmergencyPhone" ColumnName="EmergencyPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Tier" ColumnName="Tier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resistances">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Resistance)">
+        <MappingFragment StoreEntitySet="Resistances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="MethodOfAction" ColumnName="MethodOfAction" />
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignalWords">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.SignalWord)">
+        <MappingFragment StoreEntitySet="SignalWords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Logon" ColumnName="Logon" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Verified" ColumnName="Verified" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngredientLabelPairs">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.IngredientLabelPair)">
+        <MappingFragment StoreEntitySet="IngredientLabelPairs">
+          <ScalarProperty Name="LabelId" ColumnName="LabelId" />
+          <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+          <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabelCropPestTriples">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.LabelCropPestTriple)">
+        <MappingFragment StoreEntitySet="LabelCropPestTriples">
+          <ScalarProperty Name="LabelId" ColumnName="LabelId" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="PestId" ColumnName="PestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usages">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Usage)">
+        <MappingFragment StoreEntitySet="Usages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegulationAuthorities">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.RegulationAuthority)">
+        <MappingFragment StoreEntitySet="RegulationAuthorities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CropGroups">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.CropGroup)">
+        <MappingFragment StoreEntitySet="CropGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.State)">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UploadedFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.UploadedFile)">
+        <MappingFragment StoreEntitySet="UploadedFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Revisions" ColumnName="Revisions" />
+          <ScalarProperty Name="Cancellations" ColumnName="Cancellations" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
+          <ScalarProperty Name="Transit" ColumnName="Transit" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PesticideTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.PesticideType)">
+        <MappingFragment StoreEntitySet="PesticideTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateRecords">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.StateRecord)">
+        <MappingFragment StoreEntitySet="StateRecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="LabelId" ColumnName="LabelId" />
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Pdf" ColumnName="Pdf" />
+          <ScalarProperty Name="I502" ColumnName="I502" />
+          <ScalarProperty Name="Essb6206" ColumnName="Essb6206" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabelFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.LabelFile)">
+        <MappingFragment StoreEntitySet="LabelFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LabelId" ColumnName="LabelId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Labels">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Label)">
+        <MappingFragment StoreEntitySet="Labels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Pid" ColumnName="Pid" />
+          <ScalarProperty Name="FormulationId" ColumnName="FormulationId" />
+          <ScalarProperty Name="IntendedUserId" ColumnName="IntendedUserId" />
+          <ScalarProperty Name="RegistrantId" ColumnName="RegistrantId" />
+          <ScalarProperty Name="SignalWordId" ColumnName="SignalWordId" />
+          <ScalarProperty Name="UsageId" ColumnName="UsageId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Supplemental" ColumnName="Supplemental" />
+          <ScalarProperty Name="SupplementalName" ColumnName="SupplementalName" />
+          <ScalarProperty Name="SupplementalExpiration" ColumnName="SupplementalExpiration" />
+          <ScalarProperty Name="Epa" ColumnName="Epa" />
+          <ScalarProperty Name="Sln" ColumnName="Sln" />
+          <ScalarProperty Name="SlnName" ColumnName="SlnName" />
+          <ScalarProperty Name="SlnExpiration" ColumnName="SlnExpiration" />
+          <ScalarProperty Name="Ground" ColumnName="Ground" />
+          <ScalarProperty Name="EpaFieldOne" ColumnName="EpaFieldOne" />
+          <ScalarProperty Name="EpaFieldTwo" ColumnName="EpaFieldTwo" />
+          <ScalarProperty Name="EpaFieldThree" ColumnName="EpaFieldThree" />
+          <ScalarProperty Name="Spanish" ColumnName="Spanish" />
+          <ScalarProperty Name="Organic" ColumnName="Organic" />
+          <ScalarProperty Name="MasterLabel" ColumnName="MasterLabel" />
+          <ScalarProperty Name="EsaNotice" ColumnName="EsaNotice" />
+          <ScalarProperty Name="Section18" ColumnName="Section18" />
+          <ScalarProperty Name="Section18Expiration" ColumnName="Section18Expiration" />
+          <ScalarProperty Name="AlsInhib" ColumnName="AlsInhib" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPreferences">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.UserPreference)">
+        <MappingFragment StoreEntitySet="UserPreferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Setting)">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApiKeys">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.ApiKey)">
+        <MappingFragment StoreEntitySet="ApiKeys">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="TermsOfService" ColumnName="TermsOfService" />
+          <ScalarProperty Name="DateAccepted" ColumnName="DateAccepted" />
+          <ScalarProperty Name="ProposedUse" ColumnName="ProposedUse" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinarySettings">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.BinarySetting)">
+        <MappingFragment StoreEntitySet="BinarySettings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Public" ColumnName="Public" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Manageable" ColumnName="Manageable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabelResults">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.LabelResult)">
+        <MappingFragment StoreEntitySet="LabelResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WsdaLineNum" ColumnName="WsdaLineNum" />
+          <ScalarProperty Name="OrPid" ColumnName="OrPid" />
+          <ScalarProperty Name="CurrentlyRegisteredWashington" ColumnName="CurrentlyRegisteredWashington" />
+          <ScalarProperty Name="CurrentlyRegisteredOregon" ColumnName="CurrentlyRegisteredOregon" />
+          <ScalarProperty Name="Epa" ColumnName="Epa" />
+          <ScalarProperty Name="EpaOne" ColumnName="EpaOne" />
+          <ScalarProperty Name="EpaTwo" ColumnName="EpaTwo" />
+          <ScalarProperty Name="EpaThree" ColumnName="EpaThree" />
+          <ScalarProperty Name="IntendedUser" ColumnName="IntendedUser" />
+          <ScalarProperty Name="Ingredients" ColumnName="Ingredients" />
+          <ScalarProperty Name="ResistanceCode" ColumnName="ResistanceCode" />
+          <ScalarProperty Name="ResistanceSource" ColumnName="ResistanceSource" />
+          <ScalarProperty Name="Concentrations" ColumnName="Concentrations" />
+          <ScalarProperty Name="PesticideTypes" ColumnName="PesticideTypes" />
+          <ScalarProperty Name="RegistrantName" ColumnName="RegistrantName" />
+          <ScalarProperty Name="Sln" ColumnName="Sln" />
+          <ScalarProperty Name="Supplemental" ColumnName="Supplemental" />
+          <ScalarProperty Name="Formulation" ColumnName="Formulation" />
+          <ScalarProperty Name="SignalWord" ColumnName="SignalWord" />
+          <ScalarProperty Name="Usage" ColumnName="Usage" />
+          <ScalarProperty Name="SupplementalName" ColumnName="SupplementalName" />
+          <ScalarProperty Name="SupplementalExpiration" ColumnName="SupplementalExpiration" />
+          <ScalarProperty Name="SlnName" ColumnName="SlnName" />
+          <ScalarProperty Name="SlnExpiration" ColumnName="SlnExpiration" />
+          <ScalarProperty Name="Spanish" ColumnName="Spanish" />
+          <ScalarProperty Name="Organic" ColumnName="Organic" />
+          <ScalarProperty Name="EsaNotice" ColumnName="EsaNotice" />
+          <ScalarProperty Name="Section18" ColumnName="Section18" />
+          <ScalarProperty Name="Section18Expiration" ColumnName="Section18Expiration" />
+          <ScalarProperty Name="I502" ColumnName="I502" />
+          <ScalarProperty Name="Essb" ColumnName="Essb" />
+          <ScalarProperty Name="WashingtonDownload" ColumnName="WashingtonDownload" />
+          <ScalarProperty Name="OregonDownload" ColumnName="OregonDownload" />
+          <ScalarProperty Name="WashingtonRegistrationYear" ColumnName="WashingtonRegistrationYear" />
+          <ScalarProperty Name="OregonRegistrationYear" ColumnName="OregonRegistrationYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Searches">
+      <EntityTypeMapping TypeName="IsTypeOf(PicolModel.Search)">
+        <MappingFragment StoreEntitySet="Searches">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RegulationAuthorityUsagePairs" TypeName="PicolModel.RegulationAuthorityUsagePairs" StoreEntitySet="RegulationAuthorityUsagePairs">
+      <EndProperty Name="RegulationAuthority">
+        <ScalarProperty Name="Id" ColumnName="RegulationAuthorities_Id" />
+      </EndProperty>
+      <EndProperty Name="Usage">
+        <ScalarProperty Name="Id" ColumnName="Usages_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CropGroupPairs" TypeName="PicolModel.CropGroupPairs" StoreEntitySet="CropGroupPairs">
+      <EndProperty Name="CropGroup">
+        <ScalarProperty Name="Id" ColumnName="CropGroups_Id" />
+      </EndProperty>
+      <EndProperty Name="Crop">
+        <ScalarProperty Name="Id" ColumnName="Crops_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ApplicationLabelPairs" TypeName="PicolModel.ApplicationLabelPairs" StoreEntitySet="ApplicationLabelPairs">
+      <EndProperty Name="Application">
+        <ScalarProperty Name="Id" ColumnName="Applications_Id" />
+      </EndProperty>
+      <EndProperty Name="Label">
+        <ScalarProperty Name="Id" ColumnName="Labels_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LabelPesticideTypePairs" TypeName="PicolModel.LabelPesticideTypePairs" StoreEntitySet="LabelPesticideTypePairs">
+      <EndProperty Name="Label">
+        <ScalarProperty Name="Id" ColumnName="Labels_Id" />
+      </EndProperty>
+      <EndProperty Name="PesticideType">
+        <ScalarProperty Name="Id" ColumnName="PesticideTypes_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

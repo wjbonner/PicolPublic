@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8AAA27FD-8842-4E28-9532-3F804686FC59}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Picol</RootNamespace>
+    <AssemblyName>Picol</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Picol.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>Picol.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Picol.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.Versioning, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Versioning.2.3.0\lib\net45\Microsoft.AspNet.WebApi.Versioning.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Classes\Api\v0\State.cs" />
+    <Compile Include="Classes\Api\v1\Application.cs" />
+    <Compile Include="Classes\Api\v1\Crop.cs" />
+    <Compile Include="Classes\Api\v1\Data.cs" />
+    <Compile Include="Classes\Api\v1\Ingredient.cs" />
+    <Compile Include="Classes\Api\v1\IntendedUser.cs" />
+    <Compile Include="Classes\Api\v1\Label.cs" />
+    <Compile Include="Classes\Api\v1\Pest.cs" />
+    <Compile Include="Classes\Api\v1\PesticideType.cs" />
+    <Compile Include="Classes\Api\v1\Registrant.cs" />
+    <Compile Include="Classes\Api\v1\Resistance.cs" />
+    <Compile Include="Classes\Api\v1\SignalWord.cs" />
+    <Compile Include="Classes\Api\v1\State.cs" />
+    <Compile Include="Classes\Api\v1\StateRecord.cs" />
+    <Compile Include="Classes\Api\v0\Crop.cs" />
+    <Compile Include="Classes\Api\v0\Application.cs" />
+    <Compile Include="Classes\Api\v0\Ingredient.cs" />
+    <Compile Include="Classes\Api\v0\IntendedUser.cs" />
+    <Compile Include="Classes\Api\v0\PesticideType.cs" />
+    <Compile Include="Classes\Api\v0\Registrant.cs" />
+    <Compile Include="Classes\Api\v0\Label.cs" />
+    <Compile Include="Classes\Api\v0\StateRecord.cs" />
+    <Compile Include="Classes\Api\v0\SignalWord.cs" />
+    <Compile Include="Classes\Api\v0\Pest.cs" />
+    <Compile Include="Classes\Api\v0\Resistance.cs" />
+    <Compile Include="Classes\Api\v0\Data.cs" />
+    <Compile Include="Classes\AuthenticationSession.cs" />
+    <Compile Include="Classes\AuthenticationToken.cs" />
+    <Compile Include="Classes\BlackList.cs" />
+    <Compile Include="Classes\EmailHelper.cs" />
+    <Compile Include="Classes\Encryption.cs" />
+    <Compile Include="Classes\JsonNetResult.cs" />
+    <Compile Include="Classes\Search\TermGroup.cs" />
+    <Compile Include="Classes\Uploads\Certificate.cs" />
+    <Compile Include="Classes\Uploads\Product.cs" />
+    <Compile Include="Classes\Uploads\WashingtonFile.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ApiVersions\v1\PublicV1Controller.cs" />
+    <Compile Include="Controllers\ApiVersions\v0\PublicV0Controller.cs" />
+    <Compile Include="Controllers\CertificateProcessingController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Controllers\LabelController.cs" />
+    <Compile Include="Controllers\LookupController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\PestController.cs" />
+    <Compile Include="Controllers\UsageController.cs" />
+    <Compile Include="Controllers\SignalWordController.cs" />
+    <Compile Include="Controllers\RegulationAuthorityController.cs" />
+    <Compile Include="Controllers\RegistrantController.cs" />
+    <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\ResistanceController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\FormulationController.cs" />
+    <Compile Include="Controllers\CropController.cs" />
+    <Compile Include="Controllers\CropGroupController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\NewAccountController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Decorators\HistoryAttribute.cs" />
+    <Compile Include="Decorators\WsuAuthenticateAttribute.cs" />
+    <Compile Include="Decorators\AdminAuthorizeAttribute.cs" />
+    <Compile Include="Decorators\AuthenticateAttribute.cs" />
+    <Compile Include="Decorators\UserAuthorizeAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApiKey.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Application.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationHistory.cs">
+      <DependentUpon>UtilityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BinarySetting.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Crop.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CropGroup.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLoadModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataLoadModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLoadModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataLoadModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLoadModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataLoadModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Formulation.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ingredient.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IngredientLabelPair.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IntendedUser.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Label.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LabelCropPestTriple.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LabelFile.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LabelResult.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Password.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pest.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PesticideType.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PicolModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PicolModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PicolModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PicolModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PicolModel.edmx</DependentUpon>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Models\Registrant.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegulationAuthority.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Resistance.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Search.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Setting.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SignalWord.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StateRecord.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UploadedFile.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usage.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserPreference.cs">
+      <DependentUpon>PicolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UtilityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UtilityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UtilityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UtilityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UtilityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UtilityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Elmah.dll" />
+    <Content Include="bin\Elmah.Mvc.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Picol.dll" />
+    <Content Include="bin\Picol.pdb" />
+    <Content Include="bin\Picol.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Swashbuckle.Core.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Providers.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\WebActivatorEx.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\images\Blue_Question_Small.png" />
+    <Content Include="Content\images\cahnrsLogo.png" />
+    <Content Include="Content\images\cancel.png" />
+    <Content Include="Content\images\Checkmark.png" />
+    <Content Include="Content\images\collapse.gif" />
+    <Content Include="Content\images\down.gif" />
+    <Content Include="Content\images\expand.gif" />
+    <Content Include="Content\images\header-columns-bg.gif" />
+    <Content Include="Content\images\header-columns-over-bg.gif" />
+    <Content Include="Content\images\Header.png" />
+    <Content Include="Content\images\Loading.gif" />
+    <Content Include="Content\images\Loading.png" />
+    <Content Include="Content\images\OpaqueProcessing.gif" />
+    <Content Include="Content\images\processing.gif" />
+    <Content Include="Content\images\refresh.png" />
+    <Content Include="Content\images\sort-asc.gif" />
+    <Content Include="Content\images\sort-desc.gif" />
+    <Content Include="Content\images\switch.png" />
+    <Content Include="Content\images\tick.png" />
+    <Content Include="Content\images\TransparentProcessing.gif" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_fdf5ce_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_35_981e32_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\images\ui-icons_981e32_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\multi-select.css" />
+    <Content Include="Content\slick-default-theme.css" />
+    <Content Include="Content\slick.columnpicker.css" />
+    <Content Include="Content\slick.grid.css" />
+    <Content Include="Content\slick.headerbuttons.css" />
+    <Content Include="Content\slick.headermenu.css" />
+    <Content Include="Content\slick.pager.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <EntityDeploy Include="Models\PicolModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PicolModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataLoadModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataLoadModel.edmx</DependentUpon>
+      <LastGenOutput>DataLoadModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataLoadModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataLoadModel.edmx</DependentUpon>
+      <LastGenOutput>DataLoadModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PicolModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PicolModel.edmx</DependentUpon>
+      <LastGenOutput>PicolModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PicolModel.edmx.diagram">
+      <DependentUpon>PicolModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PicolModel.edmx.sql" />
+    <Content Include="Models\PicolModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PicolModel.edmx</DependentUpon>
+      <LastGenOutput>PicolModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Files\Oregon\quote.pdf" />
+    <Content Include="Files\Washington\quote.pdf" />
+    <Content Include="Models\UtilityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UtilityModel.edmx</DependentUpon>
+      <LastGenOutput>UtilityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UtilityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UtilityModel.edmx</DependentUpon>
+      <LastGenOutput>UtilityModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Picol.ruleset" />
+    <Content Include="Files\Washington\352_Corres_20160421_87 Correspondence Sample Fail.pdf" />
+    <Content Include="Files\Washington\42750-144-5905_Sample On Deck_20161026_147_5905_.pdf" />
+    <Content Include="Files\Washington\62190-31_Sample Arch BA Wood Preservative_20161107_43_62190_.pdf" />
+    <Content Include="Files\Washington\66222-123_Sample Acephate 90 Prill _20161107_58_66222_.pdf" />
+    <Content Include="Files\Washington\66222-144_Sample Nevado 4F_20161026_61_66222_.pdf" />
+    <Content Include="Files\Washington\802-543_Corres_20161019_Name Format Sample Fail_100.pdf" />
+    <Content Include="Files\Washington\802-543_Sample Lilly Miller Moss Out Lawn Granules_20161025_40_33116_.pdf" />
+    <Content Include="Files\Washington\83529-49_No RegID Sample Fail_20161107_26_.pdf" />
+    <Content Include="Files\Washington\87373-6-5905_Typo Error Sample Fail_20161026_166_5095_.pdf" />
+    <Content Include="Files\Washington\Arysta LifeScience North America LLC_66330_11-4-2016_.pdf" />
+    <Content Include="Files\Washington\Bayer CropScience LP_264_11-4-2016_.pdf" />
+    <Content Include="Files\Washington\Sample Fail Hyphenated_91399-2_11-7-2016_.pdf" />
+    <Content Include="Files\Washington\Sample Fail New Registrant_72506_11-7-2016_.pdf" />
+    <Content Include="Files\Washington\Sharda USA LLC_83529_11-7-2016_Wagn.pdf" />
+    <EntityDeploy Include="Models\UtilityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UtilityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UtilityModel.edmx.diagram">
+      <DependentUpon>UtilityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="bin\Picol.dll.config" />
+    <EntityDeploy Include="Models\DataLoadModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataLoadModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataLoadModel.edmx.diagram">
+      <DependentUpon>DataLoadModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\templates\Picol_API Terms of Service.rtf" />
+    <None Include="Properties\PublishProfiles\Beta.pubxml" />
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Picol.Account.RequestApiKey.js" />
+    <Content Include="Scripts\Picol.Admin.ApiKeyDetails.js" />
+    <Content Include="Scripts\Picol.Admin.DataLoad.js" />
+    <Content Include="Scripts\Picol.Admin.EditVideoTutorials.js" />
+    <Content Include="Scripts\Picol.Admin.EditFaq.js" />
+    <Content Include="Scripts\Picol.Admin.EditApiUse.js" />
+    <Content Include="Scripts\Picol.Admin.EditApiTos.js" />
+    <Content Include="Scripts\Picol.Admin.EditHome.js" />
+    <Content Include="Scripts\Picol.Admin.ApiKeys.js" />
+    <Content Include="Scripts\Picol.Layout.js" />
+    <Content Include="Scripts\Picol.Lookup.Formulations.js" />
+    <Content Include="Scripts\Picol.Session.Create.js" />
+    <Content Include="Scripts\Picol.User.Details.js" />
+    <Content Include="Scripts\Picol.CertificateProcessing.Reviewed.js" />
+    <Content Include="Scripts\Picol.CertificateProcessing.InTransit.js" />
+    <Content Include="Scripts\Picol.CertificateProcessing.Review.js" />
+    <Content Include="Scripts\Picol.CertificateProcessing.Uploaded.js" />
+    <Content Include="Scripts\Picol.Lookup.Applications.js" />
+    <Content Include="Scripts\Picol.Lookup.ToleranceCrops.js" />
+    <Content Include="Scripts\Picol.Lookup.IntendedUsers.js" />
+    <Content Include="Scripts\Picol.Lookup.SignalWords.js" />
+    <Content Include="Scripts\Picol.Lookup.Crops.js" />
+    <Content Include="Scripts\Picol.Lookup.Pests.js" />
+    <Content Include="Scripts\Picol.Lookup.PesticideTypes.js" />
+    <Content Include="Scripts\Picol.Lookup.Ingredients.js" />
+    <Content Include="Scripts\Picol.Lookup.Registrants.js" />
+    <Content Include="Scripts\Picol.Lookup.Resistance.js" />
+    <Content Include="Scripts\Picol.Account.ResetPassword.js" />
+    <Content Include="Scripts\Picol.NewAccount.Create.js" />
+    <Content Include="Scripts\Picol.Search.Details.js" />
+    <Content Include="Scripts\Picol.Search.Results.js" />
+    <Content Include="Scripts\Picol.Search.Quick.js" />
+    <Content Include="Scripts\Picol.Label.Upload.js" />
+    <Content Include="Scripts\Picol.Label.List.js" />
+    <Content Include="Scripts\Picol.Admin.ListSettings.js" />
+    <Content Include="Scripts\Picol.Account.Details.js" />
+    <Content Include="Scripts\Picol.User.List.js" />
+    <Content Include="Scripts\Picol.Pest.List.js" />
+    <Content Include="Scripts\Picol.Usage.List.js" />
+    <Content Include="Scripts\Picol.ToleranceType.List.js" />
+    <Content Include="Scripts\Picol.ToleranceCrop.List.js" />
+    <Content Include="Scripts\Picol.SignalWord.List.js" />
+    <Content Include="Scripts\Picol.RegulationAuthority.List.js" />
+    <Content Include="Scripts\Picol.Registrant.List.js" />
+    <Content Include="Scripts\Picol.Ingredient.List.js" />
+    <Content Include="Scripts\Picol.Resistance.List.js" />
+    <Content Include="Scripts\Picol.Application.List.js" />
+    <Content Include="Scripts\Picol.Formulation.List.js" />
+    <Content Include="Scripts\Picol.Crop.List.js" />
+    <Content Include="Scripts\Picol.CropGroup.List.js" />
+    <Content Include="Scripts\FileSaver.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.event.drag.js" />
+    <Content Include="Scripts\jquery.event.drag.live.js" />
+    <Content Include="Scripts\jquery.event.drag.live.min.js" />
+    <Content Include="Scripts\jquery.event.drag.min.js" />
+    <Content Include="Scripts\jquery.event.drop.js" />
+    <Content Include="Scripts\jquery.multi-select.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Picol.Admin.Users.js" />
+    <Content Include="Scripts\Picol.Label.Details.js" />
+    <Content Include="Scripts\Picol.Search.Advanced.js" />
+    <Content Include="Scripts\Picol.Search.Labels.js" />
+    <Content Include="Scripts\SlickGrid.Comparer.js" />
+    <Content Include="Scripts\SlickGrid.Filter.js" />
+    <Content Include="Scripts\Picol.Search.Index.js" />
+    <Content Include="Scripts\Picol.Utilities.js" />
+    <Content Include="Scripts\SlickGrid.Helper.js" />
+    <Content Include="Scripts\SlickGrid\Controls\slick.columnpicker.js" />
+    <Content Include="Scripts\SlickGrid\Controls\slick.pager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.autotooltips.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellcopymanager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellrangedecorator.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellrangeselector.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellselectionmodel.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.checkboxselectcolumn.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.headerbuttons.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.headermenu.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.rowmovemanager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.rowselectionmodel.js" />
+    <Content Include="Scripts\SlickGrid\slick.core.js" />
+    <Content Include="Scripts\SlickGrid\slick.dataview.js" />
+    <Content Include="Scripts\SlickGrid\slick.editors.js" />
+    <Content Include="Scripts\SlickGrid\slick.formatters.js" />
+    <Content Include="Scripts\SlickGrid\slick.grid.js" />
+    <Content Include="Scripts\SlickGrid\slick.groupitemmetadataprovider.js" />
+    <Content Include="Scripts\SlickGrid\slick.remotemodel.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Message\Error.cshtml" />
+    <Content Include="Views\Shared\_ErrorInstructions.cshtml" />
+    <Content Include="Views\Message\LoggedOut.cshtml" />
+    <Content Include="Settings.StyleCop" />
+    <Content Include="Views\NewAccount\Create.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Session\Create.cshtml" />
+    <Content Include="Views\NewAccount\Index.cshtml" />
+    <Content Include="Views\Session\Destroy.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Admin\ListUsers.cshtml" />
+    <Content Include="Views\Search\Advanced.cshtml" />
+    <Content Include="Views\CropGroup\List.cshtml" />
+    <Content Include="Views\Crop\List.cshtml" />
+    <Content Include="Views\Formulation\List.cshtml" />
+    <Content Include="Views\Application\List.cshtml" />
+    <Content Include="Views\Resistance\List.cshtml" />
+    <Content Include="Views\Ingredient\List.cshtml" />
+    <Content Include="Views\Registrant\List.cshtml" />
+    <Content Include="Views\RegulationAuthority\List.cshtml" />
+    <Content Include="Views\SignalWord\List.cshtml" />
+    <Content Include="Views\ToleranceCrop\List.cshtml" />
+    <Content Include="Views\ToleranceType\List.cshtml" />
+    <Content Include="Views\Usage\List.cshtml" />
+    <Content Include="Views\Pest\List.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\Label\List.cshtml" />
+    <Content Include="Views\Label\Details.cshtml" />
+    <Content Include="Views\Label\Import.cshtml" />
+    <Content Include="Views\Label\Upload.cshtml" />
+    <Content Include="Views\Label\Create.cshtml" />
+    <AdditionalFiles Include="stylecop.json" />
+    <Content Include="Views\CertificateProcessing\Uploaded.cshtml" />
+    <Content Include="Views\CertificateProcessing\Review.cshtml" />
+    <Content Include="Views\CertificateProcessing\InTransit.cshtml" />
+    <Content Include="Views\Admin\ListSettings.cshtml" />
+    <Content Include="Views\CertificateProcessing\Reviewed.cshtml" />
+    <Content Include="Views\Search\Quick.cshtml" />
+    <Content Include="Views\Search\Details.cshtml" />
+    <Content Include="Views\Lookup\Resistance.cshtml" />
+    <Content Include="Views\Lookup\Registrants.cshtml" />
+    <Content Include="Views\Lookup\Ingredients.cshtml" />
+    <Content Include="Views\Lookup\PesticideTypes.cshtml" />
+    <Content Include="Views\Lookup\Pests.cshtml" />
+    <Content Include="Views\Lookup\Crops.cshtml" />
+    <Content Include="Views\Lookup\SignalWords.cshtml" />
+    <Content Include="Views\Lookup\IntendedUsers.cshtml" />
+    <Content Include="Views\Lookup\ToleranceCrops.cshtml" />
+    <Content Include="Views\Lookup\Applications.cshtml" />
+    <Content Include="Views\Api\Index.cshtml" />
+    <Content Include="Views\NewAccount\SendVerification.cshtml" />
+    <Content Include="Views\NewAccount\Verify.cshtml" />
+    <Content Include="Views\Session\Recover.cshtml" />
+    <Content Include="Views\Session\Reset.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Account\UpdateEmail.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Account\Activities.cshtml" />
+    <Content Include="Views\Account\ClearHistory.cshtml" />
+    <Content Include="Views\Admin\EditHome.cshtml" />
+    <Content Include="Views\Admin\EditApiTos.cshtml" />
+    <Content Include="Views\Account\RequestApiKey.cshtml" />
+    <Content Include="Views\Admin\ListApiKeys.cshtml" />
+    <Content Include="Views\Admin\EditApiUse.cshtml" />
+    <Content Include="Views\Admin\ApiKeyDetails.cshtml" />
+    <Content Include="Views\Support\Faq.cshtml" />
+    <Content Include="Views\Admin\EditFaq.cshtml" />
+    <Content Include="Views\Shared\_BooleanToString.cshtml" />
+    <Content Include="Views\Lookup\Formulations.cshtml" />
+    <Content Include="Views\Admin\EditVideoTutorials.cshtml" />
+    <Content Include="Views\Support\VideoTutorials.cshtml" />
+    <Content Include="Views\Admin\DataLoad.cshtml" />
+    <None Include="Web.Beta.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Development.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <CodeAnalysisRuleSet>Picol.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Picol.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62786</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62549/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

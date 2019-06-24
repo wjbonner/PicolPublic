@@ -1,0 +1,22 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Something unusual happened...</h2>
+<h4>So please keep reading so we can get it fixed as quickly as possible</h4>
+
+<p>
+    There was an unhandled exception while generating the view you requested, and unfortunately that is particularly hard for us programmers to debug so we need you to do the following.
+</p>
+
+@Html.Partial("_ErrorInstructions")
+
+<p>
+    We also need you to send us the following information in order to fix the problem, so please include it in your report.
+</p>
+
+<p>Controller Name: @Model.ControllerName</p>
+<p>Action Name : @Model.ActionName</p>
+<p>Message: @Model.Exception.Message</p>

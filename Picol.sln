@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picol", "Picol\Picol.csproj", "{8AAA27FD-8842-4E28-9532-3F804686FC59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Beta|Any CPU = Beta|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Development|Any CPU.Build.0 = Development|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAA27FD-8842-4E28-9532-3F804686FC59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

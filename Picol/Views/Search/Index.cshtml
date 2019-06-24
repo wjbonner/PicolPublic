@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Information on searching here</h4>
+
+@*<div id="SearchPanel" style="width:100%;height:200px;">
+    @Html.DropDownList("Crops", (SelectList)ViewBag.Crops)
+</div>
+
+<div id="ResultGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="ExportResultGrid">Export</button>
+    <span id="ResultCounter" style="float:right;">Count</span>
+</div>*@
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Search_Index")
+}

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "List Users";
+}
+
+<div id="UserGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="OpenCreateWindow">Create</button>
+    <button type="button" id="ExportUserGrid">Export</button>
+    <span id="UserCounter" style="float:right;">Count</span>
+</div>
+
+<table id="CreateWindow" class="OverlayInterface">
+    <thead>
+        <tr>
+            <th>
+                <label for="Logon">Logon</label>
+            </th>
+            <th>
+                <label for="FirstName">FirstName</label>
+            </th>
+            <th>
+                <label for="LastName">LastName</label>
+            </th>
+            <th>
+                <label for="Email">Email</label>
+            </th>
+            <th>
+                <label for="Active">Active</label>
+            </th>
+            <th>
+                <label for="Admin">Admin</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="Logon" />
+            </td>
+            <td>
+                <input type="text" id="FirstName" />
+            </td>
+            <td>
+                <input type="text" id="LastName" />
+            </td>
+            <td>
+                <input type="text" id="Email" />
+            </td>
+            <td>
+                <input type="text" id="Active" />
+            </td>
+            <td>
+                <input type="text" id="Admin" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td>
+                <button id="Create">Create</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_User_List")
+}

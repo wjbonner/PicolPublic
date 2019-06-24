@@ -1,0 +1,9 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "Washington State University",
+      "copyrightText": "Copyright (c) {companyName} Board of Regents. All rights reserved."
+    }
+  }
+}

@@ -1,0 +1,469 @@
+﻿@model Picol.Models.Label
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center;">Label Details</h2>
+
+<h4 style="text-align:center;">
+    Download:
+    @{
+        if (!string.IsNullOrEmpty(ViewData["WashingtonDownload"].ToString()) && !string.IsNullOrEmpty(ViewData["OregonDownload"].ToString()))
+        {
+            <span>
+                <a href="@ViewData["WashingtonDownload"].ToString()">WA</a> | <a href="@ViewData["OregonDownload"].ToString()">OR</a>
+            </span>
+        }
+        else if (!string.IsNullOrEmpty(ViewData["WashingtonDownload"].ToString()))
+        {
+            <span>
+                <a href="@ViewData["WashingtonDownload"].ToString()">WA</a>
+            </span>
+        }
+        else if (!string.IsNullOrEmpty(ViewData["OregonDownload"].ToString()))
+        {
+            <a href="@ViewData["OregonDownload"].ToString()">OR</a>
+        }
+    }
+</h4>
+
+<div>
+    <hr />
+    <fieldset style="width:90%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Product Information</legend>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dt>
+                EPA Reg. No.
+            </dt>
+
+
+            <dt>
+                Registrant Name
+            </dt>
+
+            <dt>
+                Formulation
+            </dt>
+
+            <dt>
+                Application Method
+            </dt>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dd>
+                @Model.Name
+            </dd>
+
+            <dd>
+                @Model.Epa
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Registrant.Name)
+            </dd>
+
+            <dd>
+                @(Model.Formulation != null ? Model.Formulation.Name : string.Empty)
+            </dd>
+
+            <dd>
+                @( Model.Applications.Select(x => x.Name) != null ? string.Join(", ", Model.Applications.Select(x => x.Name)) : string.Empty )
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt>
+                Signal Word
+            </dt>
+
+            <dt>
+                WA Reg Year
+            </dt>
+
+            <dt>
+                WA Version ID
+            </dt>
+
+            <dt>
+                OR Reg Year
+            </dt>
+
+            <dt>
+                OR Version ID
+            </dt>
+        </dl>
+
+
+        <dl class="dl-horizontal">
+            <dd>
+                @Model.SignalWord.Name
+            </dd>
+
+            <dd>
+                @(Model.StateRecords.Where(x => x.State.Code == "WA").Count() > 0 ? Model.StateRecords.Where(x => x.State.Code == "WA").Max(x => x.Year).ToString() : string.Empty)
+            </dd>
+
+            <dd>
+                @( (Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault() != null) ? Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault().Version : string.Empty)
+            </dd>
+
+            <dd>
+                @(Model.StateRecords.Where(x => x.State.Code == "OR").Count() > 0 ? Model.StateRecords.Where(x => x.State.Code == "OR").Max(x => x.Year).ToString() : string.Empty)
+            </dd>
+
+            <dd>
+                @( (Model.StateRecords.Where(x => x.State.Code == "OR").OrderByDescending(x => x.Year).FirstOrDefault() != null) ? Model.StateRecords.Where(x => x.State.Code == "OR").OrderByDescending(x => x.Year).FirstOrDefault().Version : string.Empty)
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt>
+                Ingredients
+            </dt>
+
+            <dt>
+                Pesticide Type
+            </dt>
+
+            <dt>
+                Resistance Code
+            </dt>
+
+            <dt>
+                Resistance Source
+            </dt>
+
+            <dt>
+                Resistance MOA
+            </dt>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dd>
+                @( Model.IngredientLabelPairs.Select(x => x.Ingredient.Name) != null ? string.Join(", ", Model.IngredientLabelPairs.Select(x => x.Ingredient.Name)) : string.Empty )
+            </dd>
+
+            <dd>
+                @string.Join(", ", Model.PesticideTypes.Select(x => x.Name))
+            </dd>
+
+            <dd>
+                @( Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.Code) != null ? string.Join(", ", Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.Code)) : string.Empty )
+            </dd>
+
+            <dd>
+                @( Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.Source) != null ? string.Join(", ", Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.Source)) : string.Empty )
+            </dd>
+
+            <dd>
+                @( Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.MethodOfAction) != null ? string.Join(", ", Model.IngredientLabelPairs.Select(x => x.Ingredient.Resistance.MethodOfAction)) : string.Empty )
+            </dd>
+        </dl>
+    </fieldset>
+
+    <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>PICOL Tracking Data</legend>
+        <dl class="dl-vertical">
+            <dt>
+                PICOL ID No.
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pid)
+            </dd>
+
+            <dt>
+                WSDA Line No.
+            </dt>
+
+            <dd>
+                @( (Model.StateRecords.Where(x => x.State.Code == "WA").Count() > 0) ? Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault().AgencyId : string.Empty)
+            </dd>
+
+            <dt>
+                OR PID No.
+            </dt>
+
+            <dd>
+                @( (Model.StateRecords.Where(x => x.State.Code == "OR").Count() > 0) ? Model.StateRecords.Where(x => x.State.Code == "OR").OrderByDescending(x => x.Year).FirstOrDefault().AgencyId : string.Empty)
+            </dd>
+
+            <dt>
+                Added
+            </dt>
+
+            <dd>
+                @(Model.Created.HasValue ? Model.Created.Value.ToShortDateString() : string.Empty)
+            </dd>
+
+            <dt>
+                Modified
+            </dt>
+
+            <dd>
+                @(Model.Updated.HasValue ? Model.Updated.Value.ToShortDateString() : string.Empty)
+            </dd>
+
+            <dt>
+                Registrant No.
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Registrant.Code)
+            </dd>
+        </dl>
+    </fieldset>
+
+    <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Pesticide Use and Restrictions</legend>
+        <dl class="dl-vertical">
+            <dt>
+                Federal Use
+            </dt>
+
+            <dd>
+                @(Model.Usage.RegulationAuthorities.Where(x => x.Name == "Federal").Count() > 0 ? Model.Usage.Name : string.Empty)
+            </dd>
+
+            <dt>
+                Intended User
+            </dt>
+
+            <dd>
+                @Model.IntendedUser.Name
+            </dd>
+
+            <dt>
+                WA sRUP
+            </dt>
+
+            <dd>
+                @(Model.Usage.RegulationAuthorities.Where(x => x.Name == "WA").Count() > 0 ? Model.Usage.Name : string.Empty)
+            </dd>
+
+            <dt>
+                OR sRUP
+            </dt>
+
+            <dd>
+                @(Model.Usage.RegulationAuthorities.Where(x => x.Name == "OR").Count() > 0 ? Model.Usage.Name : string.Empty)
+            </dd>
+
+            <dt>
+                WA I-502/I-692
+            </dt>
+
+            <dd>
+                @{ 
+                    Html.RenderPartial("_BooleanToString", ((Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault() != null) ? Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault().I502 : false));
+                }
+            </dd>
+
+            <dt>
+                WA ESSB 6206
+            </dt>
+
+            <dd>
+                @{
+                    Html.RenderPartial("_BooleanToString", ((Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault() != null) ? Model.StateRecords.Where(x => x.State.Code == "WA").OrderByDescending(x => x.Year).FirstOrDefault().Essb6206 : false));
+                }
+            </dd>
+        </dl>
+    </fieldset>
+
+    <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Label Notices</legend>
+        <dl class="dl-vertical">
+            <dt>
+                Organic Statement
+            </dt>
+
+            <dd>
+                @{
+                    Html.RenderPartial("_BooleanToString", Model.Organic);
+                }
+            </dd>
+
+            <dt>
+                Endangered Species
+            </dt>
+
+            <dd>
+                @{
+                    Html.RenderPartial("_BooleanToString", Model.EsaNotice);
+                }
+            </dd>
+
+            <dt>
+                Groundwater
+            </dt>
+
+            <dd>
+                @{
+                    Html.RenderPartial("_BooleanToString", Model.Ground);
+                }
+            </dd>
+
+            @*<dt>
+                Respirator Required
+            </dt>
+
+            <dd>
+                ?
+            </dd>*@
+
+            <dt>
+                Spanish
+            </dt>
+
+            <dd>
+                @{
+                    Html.RenderPartial("_BooleanToString", Model.Spanish);
+                }
+            </dd>
+        </dl>
+    </fieldset>
+
+
+
+    @{
+        if (!string.IsNullOrEmpty(Model.Sln))
+        {
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+                <legend>Label Type</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        SLN No.
+                    </dt>
+
+                    <dd>
+                        @Model.Sln
+                    </dd>
+
+                    <dt>
+                        SLN Name
+                    </dt>
+
+                    <dd>
+                        @Model.SlnName
+                    </dd>
+
+                    <dt>
+                        Exp Date
+                    </dt>
+
+                    <dd>
+                        @Model.SlnExpiration
+                    </dd>
+                </dl>
+            </fieldset>
+        }
+        else if (!string.IsNullOrEmpty(Model.Supplemental))
+        {
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+                <legend>Label Type</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        Supplemental
+                    </dt>
+
+                    <dd>
+                        @Model.Supplemental
+                    </dd>
+
+                    <dt>
+                        Supplemental Name
+                    </dt>
+
+                    <dd>
+                        @Model.SupplementalName
+                    </dd>
+
+                    <dt>
+                        Exp Date
+                    </dt>
+
+                    <dd>
+                        @Model.SupplementalExpiration
+                    </dd>
+                </dl>
+            </fieldset>
+        }
+        else if (!string.IsNullOrEmpty(Model.Section18))
+        {
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+                <legend>Label Type</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        Section18
+                    </dt>
+
+                    <dd>
+                        @Model.Section18
+                    </dd>
+
+                    <dt>
+                        Exp Date
+                    </dt>
+
+                    <dd>
+                        @Model.Section18Expiration
+                    </dd>
+                </dl>
+            </fieldset>
+        }
+    }
+
+    <fieldset class="wrapper" style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Crops</legend>
+        <a href="javascript:void(0)">Show more</a>
+
+        <ul class="small">
+            @foreach (var i in Model.LabelCropPestTriples.Select(x => x.Crop.Name).Distinct().OrderBy(x => x))
+            {
+                <li>
+                    @i
+                </li>
+            }
+        </ul>
+    </fieldset>
+
+    <fieldset class="wrapper" style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Pests</legend>
+        <a href="javascript:void(0)">Show more</a>
+
+        <ul class="small">
+            @foreach (var i in Model.LabelCropPestTriples.Select(x => x.Pest.Name).Distinct().OrderBy(x => x))
+            {
+                <li>
+                    @i
+                </li>
+            }
+        </ul>
+    </fieldset>
+
+    <fieldset class="wrapper" style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;vertical-align:top;">
+        <legend>Crops and Pests</legend>
+        <a href="javascript:void(0)">Show more</a>
+
+        <ul class="small">
+            @foreach (var i in Model.LabelCropPestTriples.OrderBy(x => x.Crop.Name))
+            {
+                <li>
+                    @i.Crop.Name - @i.Pest.Name
+                </li>
+            }
+        </ul>
+    </fieldset>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_Search_Details")
+}

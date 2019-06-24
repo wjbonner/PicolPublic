@@ -1,0 +1,265 @@
+﻿
+@{
+    ViewBag.Title = "Quick";
+}
+
+
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+    * we use height instead, but this forces the menu to always be this tall
+    */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+</style>
+<input type="hidden" id="LoadedSearch" value="@ViewBag.Search" />
+
+<div id="SearchFields">
+    <h2 style="text-align:center;">Quick Searches</h2>
+    <hr />
+
+    <fieldset style="margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;float:left;">
+        <legend>Express Searches</legend>
+
+        <p style="max-width:400px;">
+            All express searches search labels registered in the current year, plus the criteria listed with each search.
+        </p>
+
+        <ul>
+            <li>
+                <a href="javascript:void(0)" id="I502Search">I-502/I-692 (WA only)</a><br />
+                <ul>
+                    <li>
+                        I502 is Yes
+                    </li>
+                    <li>
+                        Washington State
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" id="EssbSearch">ESSB 6206 (WA only)</a><br />
+                <ul>
+                    <li>
+                        ESSB 6206 is Yes
+                    </li>
+                    <li>
+                        Washington State
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" id="OrganicSearch">Organic</a><br />
+                <ul>
+                    <li>
+                        Organic is Yes
+                    </li>
+                    <li>
+                        Both States
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" id="SlnSearch">SLN by Number</a><br />
+                <ul>
+                    <li>
+                        Current Year
+                    </li>
+                    <li>
+                        Both States
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" id="UsageFedSearch">Federal restricted-use pesticide (RUP)</a><br />
+                <ul>
+                    <li>
+                        Both States
+                    </li>
+                    <li>
+                        Usage Code is R
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" id="UsageSrupSearch">State restricted-use pesticide (SRUP; WA only)</a><br />
+                <ul>
+                    <li>
+                        Washington State
+                    </li>
+                    <li>
+                        Usage Name includes SRUP
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset style="margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;float:left;">
+        <legend>Quick Search</legend>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("State", "State", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("State", (SelectList)ViewBag.States)
+                        @Html.ValidationMessage("State", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("IntendedUser", "Intended User", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IntendedUser", (SelectList)ViewBag.IntendedUsers)
+                        @Html.ValidationMessage("IntendedUser", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("EpaNumber", "EPA Number", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Editor("EpaNumber", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="checkbox" id="EpaNumberExactMatch" name="EpaNumberExactMatch" />
+                        <label for="EpaNumberExactMatch">exact</label>
+                        @Html.ValidationMessage("EpaNumber", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("LabelName", "Product Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Editor("LabelName", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="checkbox" id="LabelNameExactMatch" name="LabelNameExactMatch" />
+                        <label for="LabelNameExactMatch">exact</label>
+                        @Html.ValidationMessage("LabelName", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Ingredient", "Active Ingredient", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Editor("Ingredient", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="checkbox" id="IngredientExactMatch" name="IngredientExactMatch" />
+                        <label for="IngredientExactMatch">exact</label>
+                        @Html.ValidationMessage("Ingredient", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Crop", "Crop", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Editor("Crop", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="checkbox" id="CropExactMatch" name="CropExactMatch" />
+                        <label for="CropExactMatch">exact</label>
+                        @Html.ValidationMessage("Crop", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Pest", "Pest", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Editor("Pest", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="checkbox" id="PestExactMatch" name="PestExactMatch" />
+                        <label for="PestExactMatch">exact</label>
+                        @Html.ValidationMessage("Pest", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                
+                
+                <input type="hidden" id="I502" name="I502" value="false" />
+                <input type="hidden" id="Essb" name="Essb" value="false" />
+                <input type="hidden" id="Organic" name="Organic" value="false" />
+                <input type="hidden" id="Sln" name="Sln" value="false" />
+                <input type="hidden" id="UsageFed" name="UsageFed" value="false" />
+                <input type="hidden" id="UsageSrup" name="UsageSrup" value="false" />
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="SearchSubmit" type="button" value="Search" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </fieldset>
+</div>
+
+<table id="SaveSearchWindow" class="OverlayInterface">
+    <thead>
+        <tr>
+            <th>
+                <label for="SearchName">Name</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="SearchName" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <button id="SaveSearch">Save!</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div id="LabelGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div id="LabelFooter" class="footer" style="display:none;">
+    <button type="button" id="ExportVisibleLabelGrid" style="margin:0 10px;">Export filtered</button>
+    <button type="button" id="ExportAllLabelGrid" style="margin:0 10px;">Export unfiltered</button>
+    <button type="button" id="ExportAllRowsCols" style="margin:0 10px;">Export all rows/cols</button>
+
+    @{
+        if (Convert.ToBoolean(ViewData["LoggedIn"]))
+        {
+            <button type="button" id="ShowSaveSearch" style="margin:0 10px;">Save search</button>
+                <button type="button" id="SaveColumnOptions" style="margin:0 10px;">Save columns</button>
+                <button type="button" id="ClearColumnOptions" style="margin:0 10px;">Clear columns</button>
+        }
+    }
+
+    <button type="button" id="ModifySearch" style="margin:0 10px;">Modify search</button>
+    <button type="button" id="ClearSearch" style="margin:0 10px;">Clear search</button>
+    <span id="LabelCounter" style="float:right;">Count</span>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Search_Quick")
+}

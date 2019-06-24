@@ -1,0 +1,585 @@
+﻿body {
+    overflow-x: hidden;
+    color: #000;
+    background-color: white;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #4f868e;
+}
+
+#spine {
+    z-index: 10;
+}
+
+#spine header {
+    z-index: 10;
+}
+
+#binder #spine {
+    z-index: 10;
+}
+
+#binder.fluid #spine {
+    z-index: 10;
+}
+
+input[type=checkbox] {
+  transform: scale(2) !important;
+}
+
+/* Styles for global elements
+-----------------------------------------------------------*/
+div.Overlay {
+    opacity: 0.5;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+div.OverlayDisplay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 100;
+    color: green;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: transparent;
+    text-align: center;
+}
+
+div.MessageBar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    left: 0;
+    display: none;
+    z-index: 100;
+    color: white;
+    text-align: center;
+    font-size: large;
+    font-weight: 900;
+    background-color: black;
+    text-align: center;
+}
+
+span.BarMessage {
+    display: block;
+}
+
+.OverlaySpinner {
+    margin: auto;
+    width: 184px;
+    height: 184px;
+    background: url('/Content/images/Loading.png') top center;
+    animation: play 1s steps(19) infinite;
+}
+
+@keyframes play {
+    100% {
+        background-position: 0 -3496px;
+    }
+}
+
+/* Styles for overlay interfaces
+-----------------------------------------------------------*/
+.OverlayInterface {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 99250;
+    width: auto;
+    table-layout: fixed;
+}
+
+    .OverlayInterface label {
+        color: black;
+    }
+
+    .OverlayInterface th {
+        background-color: white;
+    }
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    margin: 0 0 1.5em 0;
+    padding: 0 0 1.4em 0;
+    /*vertical-align: top;*/
+}
+
+    fieldset.left {
+        display: block;
+        float: left;
+        width: 47%;
+        min-height: 300px;
+    }
+
+    fieldset.right {
+        display: block;
+        float: right;
+        width: 47%;
+        min-height: 300px;
+    }
+
+    fieldset.leftNarrow {
+        display: block;
+        float: left;
+        width: 25%;
+        min-height: 600px;
+    }
+
+    fieldset.rightNarrow {
+        display: block;
+        float: right;
+        width: 25%;
+        min-height: 600px;
+    }
+
+    fieldset.middle {
+        margin: 0 25% 0 25%;
+        min-height: 600px;
+    }
+
+    fieldset.stacked {
+        display: block;
+        width: 100%;
+        margin: 0 0 1.5em 0;
+        padding: 0 0 1.4em 0;
+    }
+
+legend {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.dl-horizontal {
+    text-align: center;
+    margin: 0;
+}
+
+    .dl-horizontal dt {
+        background: #5f9be3;
+        color: #fff;
+        font-weight: bold;
+        margin-right: 10px;
+        padding: 5px;
+        width: 100px;
+        white-space: nowrap;
+        width: 15%;
+        margin: 5px;
+        padding: 0;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .dl-horizontal dd {
+        width: 15%;
+        margin: 5px;
+        padding: 0;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+.dl-horizontal-narrow {
+    text-align: center;
+    margin: 0;
+}
+
+    .dl-horizontal-narrow dt {
+        width: 20%;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .dl-horizontal-narrow dd {
+        width: 20%;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+.dl-vertical {
+    margin-bottom: 50px;
+}
+
+    .dl-vertical dt {
+        background: #5f9be3;
+        color: #fff;
+        float: left;
+        font-weight: bold;
+        margin-right: 10px;
+        padding: 5px;
+        width: 155px;
+        white-space: nowrap;
+    }
+
+    .dl-vertical dd {
+        margin: 2px 0;
+        padding: 5px 0;
+    }
+
+    /* Fixes the issue where an empty dd tag causes bad shifts to subsequent dt dd pairs */
+    .dl-vertical > dd:after {
+        display: table;
+        content: "";
+        clear: both;
+    }
+
+/*.dl-vertical { 
+    dd { .clearfix(); }
+}*/
+
+/*.dl-vertical dd {
+  min-height: 1.1em;
+}*/
+
+input:read-only {
+    background-color: #cbc8c8;
+}
+
+input:disabled {
+    background-color: #cbc8c8;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    float: left;
+    margin: 4px 0 0 0;
+    color: black;
+    width: 28%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+label.editor {
+    float: left;
+    margin: 4px 0 0 0;
+    font-size: 1em;
+    color: black;
+    width: 15%;
+}
+
+.editor-field {
+    overflow: hidden;
+    padding: 4px 10px 0px 6px;
+    margin: 0;
+}
+
+    .editor-field input {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border: 1px solid #ddd;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .editor-field textarea {
+        width: 100%;
+    }
+
+label.display {
+    float: left;
+    margin: 4px 0 0 0;
+    font-size: 1em;
+    color: black;
+    width: 25%;
+}
+
+.display-label {
+    float: left;
+    margin: 0 0 0 0;
+    color: black;
+    width: 36%;
+}
+
+.display-field {
+    overflow: hidden;
+    padding: 0 10px 0px 6px;
+    margin: 4px 0 0 0;
+}
+
+.InputBlock {
+    width: 100%;
+}
+
+    .InputBlock label {
+        display: inline-block;
+        width: 35%;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .InputBlock input {
+        width: 55%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .InputBlock select {
+        width: 55%;
+        margin: 0;
+        padding: 0;
+    }
+
+[id^=SearchGroups] {
+    margin: 5px 2% 0 2%;
+    width: 96%;
+}
+
+[id^=SearchGroupOperatorSelector] {
+    margin: 5px 0 0 2%;
+}
+
+.small {
+    height: 100px;
+    overflow: hidden;
+}
+
+.big {
+    height: auto;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+    table td {
+        padding: 5px;
+        border: solid 1px #e8eef4;
+    }
+
+    table th {
+        padding: 6px 5px;
+        text-align: left;
+        background-color: #e8eef4;
+        border: solid 1px #e8eef4;
+    }
+
+.view-table {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+.view-row {
+    display: table-row;
+}
+
+    .view-row > div {
+        display: table-cell;
+    }
+
+
+
+/* Styles for content microdata
+-----------------------------------------------------------*/
+#contact-details {
+    display: none;
+}
+
+/* Styles for fluid width page
+-----------------------------------------------------------*/
+#jacket #binder.fluid {
+    width: 100%;
+    max-width: 1980px; /* 990 x 2 */
+}
+
+#jacket #binder.fluid {
+    width: 100%;
+}
+
+#jacket.size-small #binder.fluid {
+    width: 100%;
+}
+
+#jacket #binder.fluid main {
+    width: auto;
+    /*margin-left: 198px;*/
+}
+
+#jacket.size-small #binder.fluid main {
+    width: auto;
+    margin-left: 0;
+}
+
+#jacket #binder.fluid .column.one {
+    width: 100%;
+}
+
+#jacket #binder.fluid .row {
+    width: 100%;
+    max-width: none;
+}
+
+/* Styles for jquery validation
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.valid {
+    border: 1px solid green;
+    background-color: #b1de79;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+/* Footer */
+.footer {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #981e32;
+    overflow: hidden;
+    background-color: white;
+    float: left;
+}
+
+/* Style for the message display that pops up in the center of the screen
+----------------------------------------------------------*/
+div.Overlay {
+    opacity: 0.5;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+#ConfirmationDisplay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 100;
+    color: green;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 900;
+}
+
+
+/* Styles for adjustments to slickgrid elements
+----------------------------------------------------------*/
+input.GridFilters {
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+}
+
+.slickGridRowHighlight {
+    /*background-color:#b6bcbf !important;*/
+    background-color: darksalmon !important;
+}
+
+
+/* Styles for slider switches */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    margin-left: 1.75em;
+    margin-right: 1.75em;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        display: none;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 17px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "List Usages";
+}
+
+<div id="UsageGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="OpenCreateWindow">Create</button>
+    <button type="button" id="ExportUsageGrid">Export</button>
+    <span id="UsageCounter" style="float:right;">Count</span>
+</div>
+
+<table id="CreateWindow" class="OverlayInterface">
+    <thead>
+        <tr>
+            <th>
+                <label for="Name">Name</label>
+            </th>
+            <th>
+                <label for="Code">Code</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="Name" />
+            </td>
+            <td>
+                <input type="text" id="Code" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td>
+                <button id="Create">Create</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Usage_List")
+}

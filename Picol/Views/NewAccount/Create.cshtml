@@ -1,0 +1,104 @@
+﻿@model Picol.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    if (ViewBag.Message != null)
+    {
+        <h5>
+            @(ViewBag.Message)
+        </h5>
+    }
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div style="float:left;margin:20px;max-width:250px;">
+        <h4>Privacy Policy</h4>
+
+        <p>
+            You privacy is important, and we encourage you to review our <a href="~/Home/PrivacyPolicy">Privacy Policy Summary</a> before creating an account.  By creating an account you are providing PICOL Personal Information governed by our privacy policies.
+        </p>
+    </div>
+
+    <div class="form-horizontal" style="float:left;margin:20px;">
+        <h4>New Account</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" data-password="true">
+            @Html.LabelFor(model => model.Password.Hash, "Password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password.Hash, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                @Html.ValidationMessageFor(model => model.Password.Hash, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <p id="QualitativeStrength" data-password="true">Your password is: Very weak</p>
+        <div class="MeterContainer" data-password="true"><div id="PasswordMeter" class="PasswordMeter"></div></div>
+
+        <div class="form-group" data-password="true">
+            @Html.Label("Confirm Password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("PasswordConfirmation", new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                @Html.ValidationMessage("PasswordConfirmation", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="margin: 10px 0 0 0;">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div id="PasswordRequirements" style="float:left;margin: 0 20px 20px 20px;" data-password="true">
+    <h4>Requirements</h4>
+    <p id="status" style="font-weight:600;">Your password does not meet requirments.</p>
+
+    Your password must contain:
+    <ul class="Invalid">
+        <li id="length" class="invalid">At least <strong>10 characters</strong></li>
+    </ul>
+
+    Your password must contain at least 3 of the following:
+    <ul class="Invalid">
+        <li id="letter" class="invalid">1  <strong>lower case letter</strong></li>
+        <li id="capital" class="invalid">1 <strong>capital letter</strong></li>
+        <li id="number" class="invalid">1 <strong>number</strong></li>
+        <li id="special" class="invalid">1 <strong>special character</strong></li>
+    </ul>
+
+    You must confirm your new password:
+    <ul class="Invalid">
+        <li id="confirm" class="invalid">Passwords match</li>
+    </ul>
+</div>
+
+<div id="WsuLoginNotice" style="float:left;margin: 0 20px 20px 20px;max-width:250px;display:none;">
+    <h4>WSU Login Detected</h4>
+
+    <p>
+        When you create a PICOL account using a WSU email address you don't need to supply a password.  Instead, at login you will be redirected to the WSU Single Sign On portal.
+    </p>
+
+    <p>
+        After clicking create your account will be registered, and you will be directed to the Single Sign On portal.
+    </p>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_NewAccount_Create")
+}

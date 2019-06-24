@@ -1,0 +1,109 @@
+﻿@model Picol.Models.Registrant
+@{
+    ViewBag.Title = "Review";
+}
+
+
+@{
+    ViewBag.Title = "List products";
+}
+
+<input type="hidden" id="FileId" value="@(ViewBag.FileId"])" />
+
+<table id="RegistrantContainer">
+    <tr>
+        <th>Registrant Name</th>
+        <th>Unprocessed labels</th>
+        <th>Download</th>
+        <th>Upload</th>
+        <th>Stamp</th>
+        <th>New labels</th>
+        <th>Rev/Can</th>
+        <th>Register</th>
+    </tr>
+    <tr>
+        <td>@Model.Name</td>
+        <td><label id="UnprocessedLabels"></label></td>
+        <td><a href="~/CertificateProcessing/DownloadFromDatabase?id=@(ViewBag.FileId"])">Download</a></td>
+        <td><input type="file" id="Upload" /></td>
+        <td><button id="ReviewedStamp" style="margin:0;padding:0;">Reviewed</button> | <button id="TransitStamp" style="margin:0;padding:0;">Transit</button> | <button id="CustomStamp" style="margin:0;padding:0;">Custom</button></td>
+        <td><label id="NewLabels">false</label></td>
+        <td><label id="RevCan"></label></td>
+        <td><button id="RegisterLabels" style="margin:0;padding:0;">Register</button></td>
+    </tr>
+</table>
+
+<div id="LabelsContainer">
+    <h2>Unprocessed labels</h2>
+    <div id="LabelGrid" style="width: 100%; height: 500px; float:left;"></div>
+    <div class="footer">
+        <span id="Documentation"><a href="#" target="_blank">Documentation</a></span> |
+        <button type="button" id="ExportLabelGrid">Export</button>
+        <span id="LabelCounter" style="float:right;">Count</span>
+    </div>
+</div>
+
+<div id="ProductsContainer">
+    <h2>Products to re-register</h2>
+    <div id="ProductGrid" style="width: 100%; height: 500px; float:left;"></div>
+    <div class="footer">
+        <span id="Documentation"><a href="#" target="_blank">Documentation</a></span> |
+        <button type="button" id="ExportProductGrid" style="margin:0;padding:0;">Export</button>
+        <span id="ProductCounter" style="float:right;">Count</span>
+    </div>
+</div>
+
+<table id="CustomStampWindow" style="display:none;" class="OverlayInterface">
+    <tr>
+        <th>
+            Text
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <input id="CustomStampText" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="SubmitCustomStamp">Stamp</button>
+        </td>
+    </tr>
+</table>
+
+<table id="RegistrationWindow" style="display:none;" class="OverlayInterface">
+    <tr>
+        <th>
+            State
+        </th>
+        <th>
+            Year
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DropDownList("States", (SelectList)ViewBag.States) |
+        </td>
+        <td>
+            @Html.DropDownList("Years", (SelectList)ViewBag.Years) |
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="SubmitRegistration">Register</button>
+        </td>
+    </tr>
+</table>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_CertificateProcessing_Review")
+}

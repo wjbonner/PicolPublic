@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "Advanced";
+}
+
+<input type="hidden" id="LoadedSearch" value="@ViewBag.Search" />
+@{
+    if (Convert.ToBoolean(ViewData["LoggedIn"]))
+    {
+        <input type="hidden" id="LoggedIn" value="@ViewData["LoggedIn"]" />
+    }
+}
+
+<div id="SearchFields">
+    <h2 style="margin: 0 2% 0 2%;width:96%;">Advanced Search</h2>
+    
+    <hr style="height:30px;" />
+
+    <form id="AdvancedSearch" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        <div id="Filters">
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;float:left;">
+                <legend>Global</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        State
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("State", (SelectList)ViewBag.States)
+                    </dd>
+
+                    <dt>
+                        Year
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Year", (SelectList)ViewBag.Years)
+                    </dd>
+
+                    <dt>
+                        Intended User
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("IntendedUser", (SelectList)ViewBag.IntendedUsers)
+                    </dd>
+                </dl>
+            </fieldset>
+
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;float:left;">
+                <legend>Regulatory</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        I-502/I-692
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("I502", (SelectList)ViewBag.I502s)
+                    </dd>
+
+                    <dt>
+                        ESSB-6206
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Essb", (SelectList)ViewBag.Essbs)
+                    </dd>
+
+                    <dt>
+                        Endangered Species
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Esa", (SelectList)ViewBag.Esas)
+                    </dd>
+                </dl>
+            </fieldset>
+
+            <fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;float:left;">
+                <legend>Other</legend>
+                <dl class="dl-vertical">
+                    <dt>
+                        Organic
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Organic", (SelectList)ViewBag.Organics)
+                    </dd>
+
+                    <dt>
+                        Groundwater
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Ground", (SelectList)ViewBag.Grounds)
+                    </dd>
+
+                    <dt>
+                        Spanish
+                    </dt>
+
+                    <dd>
+                        @Html.DropDownList("Spanish", (SelectList)ViewBag.Spanishs)
+                    </dd>
+                </dl>
+            </fieldset>
+        </div>
+        
+        <hr style="height:30px;" />
+        
+        <h2 style="margin: 0 2% 0 2%;width:96%;">Build Your Search</h2>
+        @{int k = 0;}
+        
+        <div class="form-group" style="border:solid;border-width:medium;" id="SearchGroups[@k]" data-searchgroup="@k">
+            <input type="button" id="AddTermGroups[@k]" value="Add Search Term" data-searchgroup="@k" />
+            <div id="TermGroups[@k]" data-term="@k" data-termgroup="@k" data-searchgroup="@k">
+                @Html.TextBox("SearchGroup", k, new { Id = "SearchGroup" + k, Name = "SearchTerms[" + k + "].SearchGroup", style = "display:none", data_termgroup = k, data_searchgroup = k })
+                @Html.TextBox("SearchGroupOperator", "AND", new { Id = "SearchGroupOperator" + k, Name = "SearchTerms[" + k + "].SearchGroupOperator", style = "display:none", data_termgroup = k, data_searchgroup = k })
+                @Html.TextBox("SearchConditional", "AND", new { Id = "SearchConditional" + k, Name = "SearchTerms[" + k + "].SearchConditional", style = "display:none", data_termgroup = k, data_searchgroup = k })
+                @Html.DropDownList("SearchField", new SelectList(new Dictionary<string,string>()), new { Id = "SearchField" + k, Name = "SearchTerms[" + k + "].SearchField", data_termgroup = k, data_searchgroup = k })
+                @Html.DropDownList("SearchOperator", (SelectList)ViewBag.SearchOperators, new { Id = "SearchOperator" + k, Name = "SearchTerms[" + k + "].SearchOperator", data_termgroup = k, data_searchgroup = k })
+                @Html.TextBox("SearchValue", "", new { Id = "SearchValue" + k, Name = "SearchTerms[" + k + "].SearchValue", data_termgroup = k, data_searchgroup = k })
+            </div>
+        </div>
+    </form>
+    
+    <div style="margin: 0 2% 0 2%;width:96%;">
+        <input type="button" id="AddSearchGroup" value="Add search group" />
+    </div>
+
+    <textarea id="SearchQuery" readonly="readonly" rows="15" style="margin: 0 2% 0 2%;width:96%"></textarea>
+
+    <div style="margin: 0 2% 0 2%;width:96%">
+        <input id="Search" type="button" value="Submit Search" class="btn btn-default" style="float:left;color:crimson;font-size:x-large;" />
+    </div>
+</div>
+
+<table id="SaveSearchWindow" class="OverlayInterface">
+    <thead>
+        <tr>
+            <th>
+                <label for="SearchName">Name</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="SearchName" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <button id="SaveSearch">Save!</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div id="LabelGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div id="LabelFooter" class="footer" style="display:none;">
+    <button type="button" id="ExportVisibleLabelGrid" style="margin:0 10px;">Export filtered</button>
+    <button type="button" id="ExportAllLabelGrid" style="margin:0 10px;">Export unfiltered</button>
+    <button type="button" id="ExportAllRowsCols" style="margin:0 10px;">Export all rows/cols</button>
+    
+    @{
+        if (Convert.ToBoolean(ViewData["LoggedIn"]))
+        {
+            <button type="button" id="ShowSaveSearch" style="margin:0 10px;">Save search</button>
+            <button type="button" id="SaveColumnOptions" style="margin:0 10px;">Save columns</button>
+            <button type="button" id="ClearColumnOptions" style="margin:0 10px;">Clear columns</button>
+        }
+    }
+    
+    <button type="button" id="ModifySearch" style="margin:0 10px;">Modify search</button>
+    <button type="button" id="ClearSearch" style="margin:0 10px;">Clear search</button>
+    <span id="LabelCounter" style="float:right;">Count</span>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Search_Advanced")
+}

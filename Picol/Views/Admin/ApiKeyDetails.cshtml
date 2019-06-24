@@ -1,0 +1,89 @@
+﻿@model Picol.Models.ApiKey
+
+@{
+    ViewBag.Title = "ApiKeyDetails";
+}
+
+<h2>ApiKeyDetails</h2>
+
+<p>
+    @Html.ActionLink("Back to List", "ListApiKeys")
+</p>
+
+@Html.HiddenFor(model => model.Id)
+
+<fieldset style="width:30%;margin: 0 1% 0 1%;padding: 0 1% 0 1%;display:inline-block;">
+    <h4>ApiKey</h4>
+    <hr />
+    <dl class="dl-vertical">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAccepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAccepted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            <input type="checkbox" id="Approved" @(Model.Approved ? "checked='checked'" : "") />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            <input type="checkbox" id="Active" @(Model.Active ? "checked='checked'" : "") />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Logon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Logon)
+        </dd>
+    </dl>
+
+    Notes:
+    <textarea id="Notes">@Model.Notes</textarea>
+</fieldset>
+
+<h3>
+    Proposed Use
+</h3>
+
+@Html.Raw(Model.ProposedUse)
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/Picol_Admin_ApiKeyDetails")
+}

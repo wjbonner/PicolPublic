@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Error Display";
+}
+
+<h2>Uh oh, something went wrong...</h2>
+
+<p>
+    It seems like @ViewBag.Message
+</p>
+
+<h4>That's ok though, here is what to do next.</h4>
+
+@Html.Partial("_ErrorInstructions")

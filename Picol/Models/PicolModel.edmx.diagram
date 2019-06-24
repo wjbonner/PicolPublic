@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5ef370f7925489a897433a1ba964992" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="PicolModel.Application" Width="1.5" PointX="2" PointY="10" />
+        <EntityTypeShape EntityType="PicolModel.Crop" Width="1.5" PointX="9.375" PointY="5.625" />
+        <EntityTypeShape EntityType="PicolModel.Formulation" Width="1.5" PointX="2" PointY="5.625" />
+        <EntityTypeShape EntityType="PicolModel.Ingredient" Width="1.5" PointX="7.625" PointY="15.75" />
+        <EntityTypeShape EntityType="PicolModel.IntendedUser" Width="1.5" PointX="2" PointY="7.875" />
+        <EntityTypeShape EntityType="PicolModel.Password" Width="1.5" PointX="7.625" PointY="3.75" />
+        <EntityTypeShape EntityType="PicolModel.Pest" Width="1.5" PointX="7.625" PointY="8.25" />
+        <EntityTypeShape EntityType="PicolModel.Registrant" Width="1.5" PointX="5.25" PointY="0.5" />
+        <EntityTypeShape EntityType="PicolModel.Resistance" Width="1.5" PointX="9.75" PointY="16.5" />
+        <EntityTypeShape EntityType="PicolModel.SignalWord" Width="1.5" PointX="2" PointY="12.25" />
+        <EntityTypeShape EntityType="PicolModel.User" Width="1.5" PointX="7.625" PointY="0.5" />
+        <EntityTypeShape EntityType="PicolModel.IngredientLabelPair" Width="1.5" PointX="7.625" PointY="13.25" />
+        <EntityTypeShape EntityType="PicolModel.LabelCropPestTriple" Width="1.5" PointX="7.625" PointY="5.625" />
+        <AssociationConnector Association="PicolModel.FK_LabelCropPestTriples_Crops" />
+        <AssociationConnector Association="PicolModel.FK_IngredientLabelPairs_Ingredients" />
+        <AssociationConnector Association="PicolModel.FK_Ingredients_Resistances" />
+        <AssociationConnector Association="PicolModel.FK_Passwords_Users" />
+        <AssociationConnector Association="PicolModel.FK_LabelCropPestTriples_Pests" />
+        <EntityTypeShape EntityType="PicolModel.Usage" Width="1.5" PointX="11.375" PointY="9.125" />
+        <EntityTypeShape EntityType="PicolModel.RegulationAuthority" Width="1.5" PointX="13.25" PointY="9.125" />
+        <AssociationConnector Association="PicolModel.RegulationAuthorityUsagePairs" />
+        <EntityTypeShape EntityType="PicolModel.CropGroup" Width="1.5" PointX="11.25" PointY="5.625" />
+        <AssociationConnector Association="PicolModel.CropGroupPairs" />
+        <EntityTypeShape EntityType="PicolModel.State" Width="1.5" PointX="3" PointY="17.5" />
+        <EntityTypeShape EntityType="PicolModel.UploadedFile" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PicolModel.PesticideType" Width="1.5" PointX="7.625" PointY="10.75" />
+        <EntityTypeShape EntityType="PicolModel.StateRecord" Width="1.5" PointX="5.125" PointY="15.25" />
+        <AssociationConnector Association="PicolModel.FK_StateRecords_States" />
+        <EntityTypeShape EntityType="PicolModel.LabelFile" Width="1.5" PointX="3" PointY="14.375" />
+        <AssociationConnector Association="PicolModel.FK_LabelFiles_States" />
+        <EntityTypeShape EntityType="PicolModel.Label" Width="1.5" PointX="5.25" PointY="5.625" />
+        <AssociationConnector Association="PicolModel.FK_Labels_Formulations" />
+        <AssociationConnector Association="PicolModel.FK_Labels_IntendedUsers" />
+        <AssociationConnector Association="PicolModel.FK_LabelFiles_Labels" />
+        <AssociationConnector Association="PicolModel.FK_IngredientLabelPairs_Labels" />
+        <AssociationConnector Association="PicolModel.FK_LabelCropPestTriples_Labels" />
+        <AssociationConnector Association="PicolModel.FK_Labels_Registrants" />
+        <AssociationConnector Association="PicolModel.FK_Labels_SignalWords" />
+        <AssociationConnector Association="PicolModel.FK_Labels_Usages" />
+        <AssociationConnector Association="PicolModel.FK_StateRecords_Labels" />
+        <AssociationConnector Association="PicolModel.ApplicationLabelPairs" />
+        <AssociationConnector Association="PicolModel.LabelPesticideTypePairs" />
+        <EntityTypeShape EntityType="PicolModel.UserPreference" Width="1.5" PointX="10" PointY="3.125" />
+        <AssociationConnector Association="PicolModel.FK_UserPreferences_Users" />
+        <EntityTypeShape EntityType="PicolModel.Setting" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PicolModel.ApiKey" Width="1.5" PointX="14.375" PointY="3.125" />
+        <AssociationConnector Association="PicolModel.FK_ApiKeys_Users" />
+        <AssociationConnector Association="PicolModel.FK_ApiKeys_Users_Approver" />
+        <EntityTypeShape EntityType="PicolModel.BinarySetting" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PicolModel.LabelResult" Width="1.5" PointX="12.375" PointY="12.75" />
+        <EntityTypeShape EntityType="PicolModel.Search" Width="1.5" PointX="12.375" PointY="3.25" />
+        <AssociationConnector Association="PicolModel.FK_Searches_Users" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

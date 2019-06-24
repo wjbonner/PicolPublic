@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Application";
+}
+
+<div id="ApplicationGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div id="ApplicationFooter" class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span>
+    <button type="button" id="ExportApplicationGrid">Export</button>
+    <span id="ApplicationCounter" style="float:right;">Count</span>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Lookup_Applications")
+}

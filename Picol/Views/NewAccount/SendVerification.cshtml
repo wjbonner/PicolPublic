@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "SendVerification";
+}
+
+<h2>Please verify your account</h2>
+
+<p>
+    A verification email has been sent to your email address.  Please check your email and open the verification URL provided.  If you do not receive your email within 15 minutes, please check your junk email filter.
+</p>
+
+<p>
+    <a href="~/NewAccount/SendVerification/@(ViewBag.Id)">Click to resend verification URL</a>
+</p>
+
+<p>
+    This verification email will expire at midnight on @(DateTime.Now.ToShortDateString()).
+</p>

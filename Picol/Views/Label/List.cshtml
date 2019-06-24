@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "List Labels";
+}
+
+<div id="LabelGrid" style="width: 100%; height: 500px; float:left;"></div>
+<div class="footer">
+    <span id="Documentation"><a href="#" target="_blank">Documentation</a></span> |
+    <button type="button" id="OpenCreateWindow">Create</button>
+    <button type="button" id="ExportLabelGrid">Export</button>
+    <span id="LabelCounter" style="float:right;">Count</span>
+</div>
+
+<table id="CreateWindow" class="OverlayInterface">
+    <thead>
+        <tr>
+            <th>
+                <label for="Name">Name</label>
+            </th>
+            <th>
+                <label for="FormulationId">FormulationId</label>
+            </th>
+            <th>
+                <label for="IntendedUserId">IntendedUserId</label>
+            </th>
+            <th>
+                <label for="RegistrantId">RegistrantId</label>
+            </th>
+            <th>
+                <label for="SignalWordId">SignalWordId</label>
+            </th>
+            <th>
+                <label for="UsageId">UsageId</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="Name" />
+            </td>
+            <td>
+                @Html.DropDownList("FormulationId", (SelectList)ViewBag.Formulations)
+            </td>
+            <td>
+                @Html.DropDownList("IntendedUserId", (SelectList)ViewBag.IntendedUsers)
+            </td>
+            <td>
+                @Html.DropDownList("RegistrantId", (SelectList)ViewBag.Registrants)
+            </td>
+            <td>
+                @Html.DropDownList("SignalWordId", (SelectList)ViewBag.SignalWords)
+            </td>
+            <td>
+                @Html.DropDownList("UsageId", (SelectList)ViewBag.Usages)
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td>
+                <button id="Create">Create</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@section styles
+{
+    @Styles.Render("~/Content/slickgrid")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/SlickgridFilter")
+    @Scripts.Render("~/bundles/filesaver")
+    @Scripts.Render("~/bundles/slickgrid")
+    @Scripts.Render("~/bundles/Picol_Label_List")
+}

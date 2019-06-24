@@ -7,6 +7,24 @@ PICOL by [Washington State University Extension](https://extension.wsu.edu) is l
 Permissions beyond the scope of this license may be available at https://it.cahnrs.wsu.edu.
 
 # Instructions
-1. Install [MSSQL Express 2017](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express).  Install using a default instance, and with AD authentication enabled (be sure that your local account is given access during setup).
+1. Install [MSSQL Express 2017](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express).  Install using a default instance, and with AD authentication enabled (be sure that your local account is given access during setup).  NOTE:  You can also use an existing database server by specifying specific connection string information in a later step.
 
-2. 
+2. Install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) and include the web development packages during installation.  NOTE: VS 2019 Community currently has a bug that excludes the "EntityFramework.SqlServerCompact.dll" from "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE" during install.  You can copy and paste this DLL to the directory from previous versions of VS Community.
+
+3. Clone the repository and open in VS.
+
+4. Expand the "Models" folder in the solution explorer and double click "PicolModel".
+
+5. Right click in the free space of the visual data model and click "Generate Database from Model"
+
+6. In the wizard, select "New Connection" and specify the localhost MSSQL instance you installed (or use your own server).
+
+7. Follow the rest of the wizard to generate the database.
+
+8. Connect to your database using MSSQL Management Studio, and run the MSSQL script for [Elmah](https://elmah.github.io/downloads/#current-releases) against the database you created.
+
+9. In the database table "Users" add in a record using your email address.
+
+10. Build your application and start without debugging.
+
+11. Navigate to the login page, and go through the account recovery process for the user account you inserted.

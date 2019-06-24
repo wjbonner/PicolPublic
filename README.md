@@ -5,3 +5,8 @@ The Pesticide Information Center OnLine (PICOL) Database is a free, searchable d
 Creative Commons License
 PICOL by [Washington State University Extension](https://extension.wsu.edu) is licensed under a Creative Commons Attribution 4.0 International License.
 Permissions beyond the scope of this license may be available at https://it.cahnrs.wsu.edu.
+
+# Instructions
+1. Install [MSSQL Express 2017](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express).  Install using a default instance, and with AD authentication enabled (be sure that your local account is given access during setup).
+
+2. 
